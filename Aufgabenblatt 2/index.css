@@ -4,6 +4,10 @@ body {
     color: #000000;
     user-select: none;
     background-color: #F8F9FB;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    max-width: 900px;
 }
 
 a {
