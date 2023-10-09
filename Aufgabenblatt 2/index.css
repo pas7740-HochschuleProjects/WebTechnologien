@@ -3,3 +3,17 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #000000;
 }
+
+a {
+    color: blue;
+}
+
+a:hover {
+    color: turquoise;
+    text-decoration: none;
+}
+
+.red-link:hover {
+    color: red;
+    text-decoration: none;
+}
