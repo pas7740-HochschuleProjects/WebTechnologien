@@ -12,16 +12,21 @@
 </head>
 
 <body>
-    <img src="images\chat.png" width="90">
+    <img class="round-image" src="images\chat.png" width="90">
     <h1>Please sign in</h1>
     <form>
         <fieldset>
             <legend>Login</legend>
-            <div>Username <input type="text" \ placeholder="Username"></div>
-            <div>Password <input type="text" \ placeholder="Password"></div>
+            <div>
+                <label>Username</label> <input type="text" \ placeholder="Username">
+            </div>
+            <div>
+                <label>Password</label> <input type="text" \ placeholder="Password">
+            </div>
         </fieldset>
-        <button formaction="register.html">Register</button>
-        <button formaction="friends.html">Login</button>
+        <button class="secondary" formaction="register.html">Register</button>
+        <button class="primary" formaction="friends.html">Login</button>
+    </form>
 </body>
 
 </html>

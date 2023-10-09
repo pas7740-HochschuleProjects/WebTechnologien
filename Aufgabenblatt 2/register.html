@@ -12,23 +12,26 @@
 </head>
 
 <body>
-    <img src="images/user.png" width="90" />
+    <img class="round-image" src="images/user.png" width="90" />
     <h1>Register yourself</h1>
     <form>
         <fieldset>
             <legend>Register</legend>
 
-            <label>Username</label>
-            <input placeholder="Username" type="text" /><br>
+            <div>
+                <label>Username</label> <input placeholder="Username" type="text" />
+            </div>
 
-            <label>Password</label>
-            <input placeholder="Password" type="text" /><br>
+            <div>
+                <label>Password</label> <input placeholder="Password" type="text" />
+            </div>
 
-            <label>Confirm Password</label>
-            <input placeholder="Confirm Password" type="text" /><br>
+            <div>
+                <label>Confirm Password</label> <input placeholder="Confirm Password" type="text" />
+            </div>
         </fieldset>
-        <button formaction="login.html">Cancel</button>
-        <button formaction="friends.html">Create Account</button>
+        <button class="secondary" formaction="login.html">Cancel</button>
+        <button class="primary" formaction="friends.html">Create Account</button>
     </form>
 </body>
 

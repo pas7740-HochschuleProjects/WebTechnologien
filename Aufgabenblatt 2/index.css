@@ -2,18 +2,56 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     color: #000000;
+    user-select: none;
+    background-color: #F8F9FB;
 }
 
 a {
     color: blue;
+    text-decoration: none;
 }
 
 a:hover {
     color: turquoise;
-    text-decoration: none;
 }
 
 .red-link:hover {
     color: red;
     text-decoration: none;
+}
+
+form {
+    text-align: center;
+}
+
+form fieldset {
+    background-color: #FFFFFF;
+}
+
+form fieldset div {
+    margin-bottom: 5px;
+}
+
+form fieldset div label {
+    margin-right: 5px;
+}
+
+form button {
+    margin-top: 5px;
+    padding: 7px 15px;
+    border: none;
+}
+
+form .secondary {
+    background-color: #CCCCCC;
+    color: white;
+}
+
+form .primary {
+    background-color: #007BFF;
+    color: white;
+}
+
+.round-image {
+    border-radius: 50%;
 }
