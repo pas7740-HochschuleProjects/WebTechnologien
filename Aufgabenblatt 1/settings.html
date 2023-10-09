@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Profile Settings</title>
+    </head>
+    <body>
+        <h1>Profile Settings</h1>
+
+        <form>
+            <fieldset>
+                <legend>Base Data</legend>
+                <div>
+                    First Name
+                    <input type="text" placeholder="Your name"/>
+                </div>
+                <div>
+                    Last Name
+                    <input type="text" placeholder="Your surname" />
+                </div>
+                <div>
+                    Coffee or Tea?
+                    <select>
+                        <option>Coffee</option>
+                        <option>Tea</option>
+                        <option>Neither</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Tell Something About You</legend>
+                <textarea cols="24" placeholder="Leave a comment here"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Prefered Chat Layout</legend>
+                <p><input type="radio" /> Username and message in one line</p>
+                <p><input type="radio" /> Username and message in seperated lines</p>
+            </fieldset>
+            <button formaction="friends.html">Cancel</button>
+            <button>Save</button>
+        </form>
+    </body>
+</html>
