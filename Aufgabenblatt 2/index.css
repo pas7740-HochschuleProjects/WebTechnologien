@@ -53,13 +53,31 @@ form {
 
 form fieldset {
     background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-form fieldset div {
-    margin-bottom: var(--standard-margin);
+form fieldset label text{
+    width: 150px;
+    text-align: right;
+    margin-right: var(--standard-margin);
 }
 
-form fieldset div label {
+form fieldset label{
+    width: 340px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+form fieldset label.radio{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form fieldset label.radio input{
+    margin-bottom: 3px;
     margin-right: var(--standard-margin);
 }
 

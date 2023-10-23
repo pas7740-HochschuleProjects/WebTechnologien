@@ -17,22 +17,15 @@
     <form>
         <fieldset>
             <legend>Base Data</legend>
-            <div>
-                <label>First Name</label>
-                <input type="text" placeholder="Your name" />
-            </div>
-            <div>
-                <label>Last Name</label>
-                <input type="text" placeholder="Your surname" />
-            </div>
-            <div>
-                <label>Coffee or Tea?</label>
+            <label> <text>First Name</text> <input type="text" placeholder="Your name" /></label>
+            <label> <text>Last Name</text> <input type="text" placeholder="Your surname" /></label>
+            <label><text>Coffee or Tea?</text>
                 <select>
                     <option>Coffee</option>
                     <option>Tea</option>
                     <option>Neither</option>
                 </select>
-            </div>
+            </label>
         </fieldset>
         <fieldset>
             <legend>Tell Something About You</legend>
@@ -40,8 +33,8 @@
         </fieldset>
         <fieldset>
             <legend>Prefered Chat Layout</legend>
-            <p><input type="radio" /> <label>Username and message in one line</label></p>
-            <p><input type="radio" /> <label>Username and message in seperated lines</label></p>
+            <label class="radio"> <input type="radio" name="one-line"/> Username and message in one line </label>
+            <label class="radio"> <input type="radio" name="one-line"/> Username and message in seperated lines</label>
         </fieldset>
         <button formaction="friends.html">Cancel</button>
         <button>Save</button>
