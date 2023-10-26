@@ -12,27 +12,42 @@
 </head>
 
 <body>
-    <h1>Chat with Tom</h1>
+    <h1 id="Chatüberschrift"> Chat with Tom </h1>
 
-    <a class="blue-link" href="friends.html">< Back</a> | 
-    <a class="blue-link" href="profile.html">Profile</a> | 
-    <a class="red-link" href="friends.html">Remove Friend</a>
-    
-    <hr>
+    <a class="blue-link" href="friends.html">
+        < Back</a> |
+            <a class="blue-link" href="profile.html">Profile</a> |
+            <a class="red-link" href="friends.html">Remove Friend</a>
 
-    <div class="container">
-        <ul>
-            <li class="item">Tom: Hallo, Welt!</li>
-            <li class="item">Jerry: Wie gehts?</li>
-        </ul>
-    </div>
+            <hr>
 
-    <hr>
+            <div class="container">
+                <ul>
+                    <li class="item">Tom: Hallo, Welt!</li>
+                    <li class="item">Jerry: Wie gehts?</li>
+                </ul>
+            </div>
 
-    <div class="input-container">
-        <input type="text" placeholder="New Message" />
-        <button>Send</button>
-    </div>
+            <hr>
+
+            <div class="input-container">
+                <input type="text" placeholder="New Message" />
+                <button>Send</button>
+            </div>
 </body>
 
 </html>
+<script>
+    let friendName = getChatpartner();
+    let überSchrift = document.getElementById("Chatüberschrift");
+    überSchrift.innerText = "Chat with " + friendName;
+
+    function getChatpartner() {
+        const url = new URL(window.location.href);
+        const queryParams = url.searchParams;
+        const friendValue = queryParams.get("friend");
+        console.log("Friend:", friendValue);
+        return friendValue;
+    }
+
+</script>
