@@ -154,3 +154,9 @@ textarea{
 .container .list-item button{
     margin-left: var(--standard-margin);
 }
+
+.input-error {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
