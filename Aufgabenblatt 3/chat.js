@@ -1,5 +1,5 @@
 let friendName = getChatpartner();
-let überSchrift = document.getElementById("Chatüberschrift");
+let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
 function getChatpartner() {
