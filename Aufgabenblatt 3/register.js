@@ -9,7 +9,6 @@ PasswordErrorElement = document.getElementById('PasswordError');
 ConfirmErrorElement = document.getElementById('ConfirmError');
 
 form.addEventListener('submit', (e) => {
-    console.log("Hello World")
     // let UserMessages = [];
     // let PasswordMessages = [];
     // let ConfirmMessages = [];

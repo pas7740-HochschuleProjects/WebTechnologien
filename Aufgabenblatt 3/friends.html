@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <script defer src="./friends.js"></script>
 </head>
 
 <body>
@@ -35,7 +37,8 @@
     </ol>
     <hr>
     <div class="input-container">
-        <input type="text" placeholder="Add Friend to List">
+        <input type="text" placeholder="Add Friend to List" name="friendRequestname" id="friend-request-name" list="friend-selector">
+        <datalist id="friend-selector" />
         <button>Add</button>
     </div>
 </body>
