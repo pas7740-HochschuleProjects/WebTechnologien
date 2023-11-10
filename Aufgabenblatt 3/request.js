@@ -25,8 +25,9 @@ async function sendRequest(requestType, endpoint, body) {
     };
     return await fetch(url, header)
         .then(async (response) => {
+            let data = await response.json().catch((error)=>{});
             return {
-                data: await response.json(),
+                data: data,
                 status: response.status
             };
         })
