@@ -35,14 +35,15 @@ xmlhttp.setRequestHeader('Authorization', 'Bearer ' + token);
 xmlhttp.send();
 
 var xmlhttps = new XMLHttpRequest();
-xmlhttps.onreadystatechange = function() {
-    if(xmlhttps.readyState == 4) {
-        if(xmlhttps.status == 204) {
+xmlhttps.onreadystatechange = function () {
+    if (xmlhttps.readyState == 4) {
+        if (xmlhttps.status == 204) {
             console.log("Exists");
-        } else if(xmlhttps.status == 404) {
+        } else if (xmlhttps.status == 404) {
             console.log("Does not exist");
         }
     }
 };
 xmlhttps.open("GET", "https://online-lectures-cs.thi.de/chat/7b75c2e2-0dbd-4363-8e97-419ac36ac777/user/Tom", true);
 xmlhttps.send();
+
