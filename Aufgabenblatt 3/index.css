@@ -114,6 +114,10 @@ button:hover{
     margin-right: var(--standard-margin);
 }
 
+input:focus{
+    outline: none;
+}
+
 form .secondary {
     background-color: #CCCCCC;
     color: white;

@@ -1,6 +1,8 @@
 const REQUEST_TYPE = {
     GET: "GET",
-    POST: "POST"
+    POST: "POST",
+    DELETE: "DELETE",
+    PUT: "PUT"
 };
 
 async function postRequest(endpoint, body){
