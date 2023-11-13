@@ -1,6 +1,8 @@
+<script defer src="friends.js"></script>
 const TomToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NTM4Mzk1fQ.fMSqkUd7KhPW-G01o4f_h3Ai5s8qHsUSK3VkqQ1kCow";
 const JerryToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE2OTk1MzgzOTV9.ifConheetJG1jtufH1_wsd3ue159ivJ9XcfG-cVDmXs";
 const CollectionID = "7b75c2e2-0dbd-4363-8e97-419ac36ac777";
+
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -9,7 +11,8 @@ function getChatpartner() {
     return friendValue;
 }
 
-let friendName = getChatpartner();
+let friendName = friendValue;
+//friendName.setAttribute("href", "chat.html?friend=" + user.username);
 let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
