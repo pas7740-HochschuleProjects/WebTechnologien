@@ -2,6 +2,7 @@
 const TomToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NTM4Mzk1fQ.fMSqkUd7KhPW-G01o4f_h3Ai5s8qHsUSK3VkqQ1kCow";
 const JerryToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE2OTk1MzgzOTV9.ifConheetJG1jtufH1_wsd3ue159ivJ9XcfG-cVDmXs";
 const CollectionID = "7b75c2e2-0dbd-4363-8e97-419ac36ac777";
+window.backendUrl = "https://online-lectures-cs.thi.de/chat/7b75c2e2-0dbd-4363-8e97-419ac36ac777";
 
 function getChatpartner() {
     const url = new URL(window.location.href);
@@ -24,8 +25,6 @@ window.setInterval(function () {
     loadChat();
 }, 1000)
 
-window.backendUrl = "https://online-lectures-cs.thi.de/chat/7b75c2e2-0dbd-4363-8e97-419ac36ac777";
-window.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NTM4Mzk1fQ.fMSqkUd7KhPW-G01o4f_h3Ai5s8qHsUSK3VkqQ1kCow";
 const xmlhttp1 = new XMLHttpRequest();
 xmlhttp1.onreadystatechange = function () {
     if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
