@@ -1,9 +1,10 @@
 <script defer src="friends.js"></script>
-const TomToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NTM4Mzk1fQ.fMSqkUd7KhPW-G01o4f_h3Ai5s8qHsUSK3VkqQ1kCow";
-const JerryToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE2OTk1MzgzOTV9.ifConheetJG1jtufH1_wsd3ue159ivJ9XcfG-cVDmXs";
-const CollectionID = "7b75c2e2-0dbd-4363-8e97-419ac36ac777";
-window.backendUrl = "https://online-lectures-cs.thi.de/chat/7b75c2e2-0dbd-4363-8e97-419ac36ac777";
-
+const TomToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMDU5MDA0fQ.UwCn0HR0YEX5y6Mse0_HFti87dYCfYBIlDWty-6NZoM";
+const JerryToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAwNTkwMDR9.8JH7M__d7gnofoWuEpf6KCVKfR5N75hJatTYpsvSrwk";
+const CollectionID = "cafea7a0-e443-427e-950a-0326adb381e0";
+window.backendUrl = "https://online-lectures-cs.thi.de/chat/cafea7a0-e443-427e-950a-0326adb381e0";
+let username = getChatpartner();
+let token;
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -17,12 +18,20 @@ let friendName = friendValue;
 let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
-//function loadChat() {
-//   fetch();
-//}
+function loadChat(username) {
+    const xmlhttp4 = new XMLHttpRequest();
+    xmlhttp4.open("GET", window.backendUrl + "/message/" + username, true);
+    if (username == Tom) {
+        token = TomToken;
+    } else if (username == Jerry) {
+        token = JerryToken;
+    }
+    xmlhttp4.setRequestHeader('Authorization', 'Bearer ' + token);
+    xmlhttp4.send();
+}
 
 window.setInterval(function () {
-    loadChat();
+    loadChat(username);
 }, 1000)
 
 const xmlhttp1 = new XMLHttpRequest();
@@ -36,18 +45,20 @@ xmlhttp1.open("GET", backendUrl + "/user", true);
 xmlhttp1.setRequestHeader('Authorization', 'Bearer ' + token);
 xmlhttp1.send();
 
-var xmlhttp2 = new XMLHttpRequest();
-xmlhttp2.onreadystatechange = function () {
-    if (xmlhttp2.readyState == 4) {
-        if (xmlhttp2.status == 204) {
-            console.log("Exists");
-        } else if (xmlhttp2.status == 404) {
-            console.log("Does not exist");
+function UserExists(username) {
+    var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function () {
+        if (xmlhttp2.readyState == 4) {
+            if (xmlhttp2.status == 204) {
+                console.log("Exists");
+            } else if (xmlhttp2.status == 404) {
+                console.log("Does not exist");
+            }
         }
-    }
-};
-xmlhttps.open("GET", "https://online-lectures-cs.thi.de/chat/7b75c2e2-0dbd-4363-8e97-419ac36ac777/user/Tom", true);
-xmlhttps.send();
+    };
+    xmlhttps.open("GET", window.backendUrl + "/user/" + username, true);
+    xmlhttps.send();
+}
 
 var xmlhttp3 = new XMLHttpRequest();
 xmlhttp3.onreadystatechange = function () {
@@ -56,24 +67,26 @@ xmlhttp3.onreadystatechange = function () {
         console.log(data);
     }
 };
-xmlhttp3.open("GET", "https://online-lectures-cs.thi.de/chat/ed84cb44-8b4c-4eeb-83d8-7df122c7b164/message/Jerry", true);
+xmlhttp3.open("GET", window.backendUrl + "/message/Jerry", true);
 xmlhttp3.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NjIxNzk0fQ.zfRU6UnRiz853w3CAH4Ke0tADNqk0OxHQgxDFOnrE08');
 xmlhttp3.send();
 
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-        console.log("done...");
-    }
-};
-xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/ed84cb44-8b4c-4eeb-83d8-7df122c7b164/message", true);
-xmlhttp.setRequestHeader('Content-type', 'application/json');
-// Add token, e. g., from Tom
-xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjk5NjIxNzk0fQ.zfRU6UnRiz853w3CAH4Ke0tADNqk0OxHQgxDFOnrE08');
-// Create request data with message and receiver
-let data = {
-    message: "Hello?!",
-    to: "Jerry"
-};
-let jsonString = JSON.stringify(data); // Serialize as JSON
-xmlhttp.send(jsonString); // Send JSON-data to server
+function sendMessage() {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+            console.log("done...");
+        }
+    };
+    xmlhttp.open("POST", window.backendUrl + "/message", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/json');
+    // Add token, e. g., from Tom
+    xmlhttp.setRequestHeader('Authorization', '');
+    // Create request data with message and receiver
+    let data = {
+        msg: message,
+        to: user
+    };
+    let jsonString = JSON.stringify(data); // Serialize as JSON
+    xmlhttp.send(jsonString); // Send JSON-data to server
+}
