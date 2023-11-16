@@ -1,18 +1,17 @@
 let chatData = []; 
-const JERRY_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAxNDM4NTR9.tOujsKI14Uxl5ZNagmvXALRBJf7WtHuIvXSt2UYDucE";
 
-// function getChatpartner() {
-//     const url = new URL(window.location.href);
-//     const queryParams = url.searchParams;
-//     const friendValue = queryParams.get("friend");
-//     console.log("Friend:", friendValue);
-//     return friendValue;
-// }
+ function getChatpartner() {
+     const url = new URL(window.location.href);
+     const queryParams = url.searchParams;
+     const friendValue = queryParams.get("friend");
+     console.log("Friend:", friendValue);
+     return friendValue;
+ }
 
-//let friendName = friendValue;
-//friendName.setAttribute("href", "chat.html?friend=" + user.username);
-//let überSchrift = document.getElementById("heading");
-//überSchrift.innerText = "Chat with " + friendName;
+let friendName = getChatpartner();
+friendName.setAttribute("href", "chat.html?friend=" + user.username);
+let überSchrift = document.getElementById("heading");
+überSchrift.innerText = "Chat with " + friendName;
 
 function loadChat() {
     let ChatBox = document.getElementById("chatbox");
@@ -28,17 +27,6 @@ function loadChat() {
 window.setInterval(function () {
     loadChat();
 }, 1000)
-
-// const xmlhttp1 = new XMLHttpRequest();
-// xmlhttp1.onreadystatechange = function () {
-//     if (xmlhttp1.readyState == 4 && xmlhttp1.status == 200) {
-//         let data = JSON.parse(xmlhttp1.responseText);
-//         console.log(data);
-//     }
-// };
-// xmlhttp1.open("GET", BASE_URL + "/user", true);
-// xmlhttp1.setRequestHeader('Authorization', 'Bearer ' + ACCESS_TOKEN);
-// xmlhttp1.send();
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
