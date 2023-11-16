@@ -8,20 +8,23 @@ UserErrorElement = document.getElementById('UserError');
 PasswordErrorElement = document.getElementById('PasswordError');
 ConfirmErrorElement = document.getElementById('ConfirmError');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('input', (e) => {
     let UserMessages = [];
     let PasswordMessages = [];
     let ConfirmMessages = [];
+    let checkA = 0;
+    let checkB = 0;
 
     // Check if Username has at least 3 characters
     if (username.value.length < 3) {
         UserMessages.push('Username requires at least 3 characters');
         document.getElementById("username").style.border = "2px solid red";
         UserErrorElement.innerText = UserMessages.join(', ');    //print error message
-        e.preventDefault();                                      //prevent submitting
+        submitBTN.setAttribute('disabled', 'disabled');                                      //prevent submitting
     } else {
         document.getElementById("username").style.border = "2px solid green";
         UserErrorElement.innerText = "";
+        checkA = 1;
     }
 
     // Check if Username is already used
@@ -32,7 +35,7 @@ form.addEventListener('submit', (e) => {
                 UserMessages.push('Username is already used');
                 document.getElementById("username").style.border = "2px solid red";
                 UserErrorElement.innerText = UserMessages.join(', ');    //print error message
-                e.preventDefault();                                      //prevent submitting
+                submitBTN.setAttribute('disabled', 'disabled');                                     //prevent submitting
                 console.log("Exists");
             } else if (xmlhttp.status == 404) {
                 console.log("Does not exist");
@@ -47,20 +50,27 @@ form.addEventListener('submit', (e) => {
         PasswordMessages.push('Password requires at least 8 characters');
         document.getElementById("password").style.border = "2px solid red";
         PasswordErrorElement.innerText = PasswordMessages;       //print error message
-        e.preventDefault();                                      //prevent submitting
+        submitBTN.setAttribute('disabled', 'disabled');                                     //prevent submitting
     } else {
         document.getElementById("password").style.border = "2px solid green";
         PasswordErrorElement.innerText = "";
+        
 
         // Check if PW and Confirm PW match
         if (confirm.value != password.value) {
             ConfirmMessages.push('Passwords do not match');
             document.getElementById("confirm").style.border = "2px solid red";
             ConfirmErrorElement.innerText = ConfirmMessages;   //print error message
-            e.preventDefault();                                //prevent submitting
+            submitBTN.setAttribute('disabled', 'disabled');                                //prevent submitting
         } else {
             document.getElementById("confirm").style.border = "2px solid green";
             ConfirmErrorElement.innerText = "";
+            checkB = 1;
         }
+    }
+
+    // prevent cheating on Validation :)
+    if ((checkA + checkB) == 2) {
+        submitBTN.removeAttribute('disabled');
     }
 })
