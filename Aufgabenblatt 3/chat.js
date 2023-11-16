@@ -1,17 +1,16 @@
 let chatData = []; 
 
-//  function getChatpartner() {
-//      const url = new URL(window.location.href);
-//      const queryParams = url.searchParams;
-//      const friendValue = queryParams.get("friend");
-//      console.log("Friend:", friendValue);
-//      return friendValue;
-//  }
+ function getChatpartner() {
+      const url = new URL(window.location.href);
+      const queryParams = url.searchParams;
+      const friendValue = queryParams.get("friend");
+      console.log("Friend:", friendValue);
+      return friendValue;
+  }
 
-// let friendName = getChatpartner();
-// friendName.setAttribute("href", "chat.html?friend=" + user.username);
-// let überSchrift = document.getElementById("heading");
-// überSchrift.innerText = "Chat with " + friendName;
+ let friendName = getChatpartner();
+ let überSchrift = document.getElementById("heading");
+ überSchrift.innerText = "Chat with " + friendName;
 
 function loadChat() {
     let ChatBox = document.getElementById("chatbox");
@@ -21,7 +20,6 @@ function loadChat() {
             chatData = response.data;
         } 
     });
-    
 }
 
 window.setInterval(function () {
