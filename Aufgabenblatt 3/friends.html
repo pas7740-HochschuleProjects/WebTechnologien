@@ -19,22 +19,13 @@
     <a class="blue-link" href="logout.html">< Logout </a> | 
     <a class="blue-link" href="settings.html">Settings</a>
     <hr>
-    <div class="container">
+    <div class="container empty" id="friend-container">
         <ul>
-            <li class="item"><a href="chat.html">Tom (3)</a></li>
-            <li class="item"><a href="chat.html">Marvin (1)</a></li>
-            <li class="item"><a href="chat.html">Tick</a></li>
-            <li class="item"><a href="chat.html">Trick</a></li>
         </ul>
     </div>
-    <hr>
+    <hr id="friend-break-line">
     <h2>New Requests</h2>
-    <ol class="container">
-        <li class="list-item">
-            Friend request from <b>Track</b>
-            <button>Accept</button>
-            <button>Reject</button>
-        </li>
+    <ol class="container empty" id="friend-request-container">
     </ol>
     <hr>
     <div class="input-container">
@@ -43,5 +34,17 @@
         <button onclick="addFriend()">Add</button>
     </div>
 </body>
+
+<template id="friend-template">
+    <li class="item"><a href="chat.html" class="blue-link"></a></li>
+</template>
+
+<template id="friend-request-template">
+    <li class="list-item">
+        <text>Friend request from <b></b></text>
+        <button>Accept</button>
+        <button>Reject</button>
+    </li>
+</template>
 
 </html>

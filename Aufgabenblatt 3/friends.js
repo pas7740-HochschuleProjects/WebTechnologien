@@ -35,9 +35,76 @@ function loadFriends(){
             }
         }
     });
+
     //console.log("User: " + userList);
     //console.log("Friends: " + friendList);
     //console.log("Requested: " + requestList);
+    updateFriendRequests();
+    updateFriendList();
+}
+
+function updateFriendRequests(){
+    let friendRequestContainer = document.getElementById("friend-request-container");
+
+    if(requestList != 0){
+        let liTemplate = document.getElementById("friend-request-template");
+
+        // Style
+        friendRequestContainer.classList.remove("empty");
+
+        // Li
+        for(let request of requestList){
+            let requestFound = false;
+            for(let child of friendRequestContainer.children){
+                if(child.id == request){
+                    requestFound = true;
+                    break;
+                }
+            }
+            if(!requestFound){
+                friendRequestContainer.appendChild(liTemplate.content.cloneNode(true));
+                let liElement = friendRequestContainer.children[friendRequestContainer.children.length-1];
+                liElement.id = request;
+                liElement.children[0].getElementsByTagName("b")[0].innerHTML = request;
+            }
+        }
+    }
+}
+
+function updateFriendList(){
+    let friendContainer = document.getElementById("friend-container");
+    let friendBreakLine = document.getElementById("friend-break-line");
+
+    // If friendlist is not empty
+    if(friendList.length != 0){
+        let liTemplate = document.getElementById("friend-template");
+        let ulElement = friendContainer.children[0];
+
+        // Style
+        friendContainer.classList.remove("empty");
+        friendBreakLine.style.display = "block";
+
+        // Li
+        for(let friend of friendList){
+            let friendFound = false;
+            for(let child of ulElement.children){
+                if(child.id == friend){
+                    friendFound = true;
+                    break;
+                }
+            }
+            if(!friendFound){
+                ulElement.appendChild(liTemplate.content.cloneNode(true));
+                let liElement = ulElement.children[ulElement.children.length-1];
+                liElement.id = friend;
+                liElement.children[0].innerHTML = friend;
+            }
+        }
+    }
+    else{
+        friendContainer.classList.add("empty");
+        friendBreakLine.style.display = "none";
+    }
 }
 
 function addFriend(){

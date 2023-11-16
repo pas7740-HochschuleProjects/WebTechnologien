@@ -142,6 +142,10 @@ textarea{
     margin: 0 var(--standard-margin);
 }
 
+.container.empty{
+    display: none;
+}
+
 .container .item {
     margin-bottom: var(--standard-margin);
     list-style: none;
@@ -163,4 +167,8 @@ textarea{
     color: red;
     font-size: 10px;
     margin-bottom: 5px;
+}
+
+#friend-break-line{
+    display: none;
 }
