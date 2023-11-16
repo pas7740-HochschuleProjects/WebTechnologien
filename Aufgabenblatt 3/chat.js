@@ -1,17 +1,17 @@
 let chatData = []; 
 
- function getChatpartner() {
-     const url = new URL(window.location.href);
-     const queryParams = url.searchParams;
-     const friendValue = queryParams.get("friend");
-     console.log("Friend:", friendValue);
-     return friendValue;
- }
+//  function getChatpartner() {
+//      const url = new URL(window.location.href);
+//      const queryParams = url.searchParams;
+//      const friendValue = queryParams.get("friend");
+//      console.log("Friend:", friendValue);
+//      return friendValue;
+//  }
 
-let friendName = getChatpartner();
-friendName.setAttribute("href", "chat.html?friend=" + user.username);
-let überSchrift = document.getElementById("heading");
-überSchrift.innerText = "Chat with " + friendName;
+// let friendName = getChatpartner();
+// friendName.setAttribute("href", "chat.html?friend=" + user.username);
+// let überSchrift = document.getElementById("heading");
+// überSchrift.innerText = "Chat with " + friendName;
 
 function loadChat() {
     let ChatBox = document.getElementById("chatbox");
@@ -31,6 +31,6 @@ window.setInterval(function () {
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
 
-    postRequest("message/" + USERNAME, {name:"Jerry", msg: newchatData});
+    postRequest("message", {to:"Jerry", message: newchatData, from: USERNAME});
     
 }
