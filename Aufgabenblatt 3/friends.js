@@ -98,6 +98,7 @@ function updateFriendList(){
                 let liElement = ulElement.children[ulElement.children.length-1];
                 liElement.id = friend;
                 liElement.children[0].innerHTML = friend;
+                liElement.children[0].setAttribute("href", "chat.html?friend=" + friend);
             }
         }
     }
