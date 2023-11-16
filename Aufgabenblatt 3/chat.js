@@ -1,37 +1,27 @@
-<script defer src="friends.js"></script>
-const TomToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwMDU5MDA0fQ.UwCn0HR0YEX5y6Mse0_HFti87dYCfYBIlDWty-6NZoM";
-const JerryToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDAwNTkwMDR9.8JH7M__d7gnofoWuEpf6KCVKfR5N75hJatTYpsvSrwk";
-const CollectionID = "cafea7a0-e443-427e-950a-0326adb381e0";
-window.backendUrl = "https://online-lectures-cs.thi.de/chat/cafea7a0-e443-427e-950a-0326adb381e0";
-let username = getChatpartner();
-let token;
-function getChatpartner() {
-    const url = new URL(window.location.href);
-    const queryParams = url.searchParams;
-    const friendValue = queryParams.get("friend");
-    console.log("Friend:", friendValue);
-    return friendValue;
-}
+let chatData = [];
+// function getChatpartner() {
+//     const url = new URL(window.location.href);
+//     const queryParams = url.searchParams;
+//     const friendValue = queryParams.get("friend");
+//     console.log("Friend:", friendValue);
+//     return friendValue;
+// }
 
-let friendName = friendValue;
+//let friendName = friendValue;
 //friendName.setAttribute("href", "chat.html?friend=" + user.username);
-let überSchrift = document.getElementById("heading");
-überSchrift.innerText = "Chat with " + friendName;
+//let überSchrift = document.getElementById("heading");
+//überSchrift.innerText = "Chat with " + friendName;
 
-function loadChat(username) {
-    const xmlhttp4 = new XMLHttpRequest();
-    xmlhttp4.open("GET", window.backendUrl + "/message/" + username, true);
-    if (username == Tom) {
-        token = TomToken;
-    } else if (username == Jerry) {
-        token = JerryToken;
-    }
-    xmlhttp4.setRequestHeader('Authorization', 'Bearer ' + token);
-    xmlhttp4.send();
+function loadChat() {
+    getRequest("message/" + USERNAME).then((response)=>{
+        if(response.status==200){
+            console.log(response.data);
+        } 
+    })
 }
 
 window.setInterval(function () {
-    loadChat(username);
+    loadChat();
 }, 1000)
 
 const xmlhttp1 = new XMLHttpRequest();

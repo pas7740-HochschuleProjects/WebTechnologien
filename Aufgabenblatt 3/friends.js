@@ -35,9 +35,9 @@ function loadFriends(){
             }
         }
     });
-    console.log("User: " + userList);
-    console.log("Friends: " + friendList);
-    console.log("Requested: " + requestList);
+    //console.log("User: " + userList);
+    //console.log("Friends: " + friendList);
+    //console.log("Requested: " + requestList);
 }
 
 function addFriend(){
