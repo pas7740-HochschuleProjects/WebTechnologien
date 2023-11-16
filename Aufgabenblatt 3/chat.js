@@ -41,29 +41,8 @@ window.setInterval(function () {
 // xmlhttp1.send();
 
 function sendMessage() {
-    let newchatData = [];
-    newchatData = document.getElementById("textsubmit");
-    // let xmlhttp = new XMLHttpRequest();
-    // xmlhttp.onreadystatechange = function () {
-    //     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-    //         console.log("done...");
-    //     }
-    // };
-    postRequest("message/" + USERNAME).then((response)=>{
-        if(response.status==200){
-            chatData= response.data + newchatData;
-        }
-    })
+    let newchatData = document.getElementById("textsubmit").value;
+
+    postRequest("message/" + USERNAME, {name:"Jerry", msg: newchatData});
     
-    // xmlhttp.open("POST", window.backendUrl + "/message", true);
-    // xmlhttp.setRequestHeader('Content-type', 'application/json');
-    // // Add token, e. g., from Tom
-    // xmlhttp.setRequestHeader('Authorization', '');
-    // // Create request data with message and receiver
-    // let data = {
-    //     msg: message,
-    //     to: user
-    // };
-    // let jsonString = JSON.stringify(data); // Serialize as JSON
-    // xmlhttp.send(jsonString); // Send JSON-data to server
 }
