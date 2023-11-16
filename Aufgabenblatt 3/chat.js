@@ -20,7 +20,6 @@ function loadChat() {
         if(response.status==200){
             console.log(response.data);
             chatData = response.data;
-            ChatBox = chatData;
         } 
     });
     
@@ -50,7 +49,7 @@ function sendMessage() {
     //         console.log("done...");
     //     }
     // };
-    postRequest("message/" + USERNAME, ACCESS_TOKEN).then((response)=>{
+    postRequest("message/" + USERNAME).then((response)=>{
         if(response.status==200){
             chatData= response.data + newchatData;
         }
