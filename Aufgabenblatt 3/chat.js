@@ -16,20 +16,31 @@ function loadChat() {
     let chatBox = document.getElementById("chatbox");
     getRequest("message/" + friendName).then((response) => {
         if (response.status == 200) {
-            console.log(response.data);
             chatData = response.data;
             let arrayLength = response.data.length;
-            for (let j; j < arrayLength; j++) {
-                renderChat(chatBox, chatData[j]);
+            for (let j = 0; j < arrayLength; j++) {
+                let messageFound = false;
+                for (let child of chatBox.children) {
+                    if (child.id == j) {
+                        messageFound = true;
+                        break;
+                    }
+                }
+                if (messageFound == true) {
+                    renderChat(chatBox, chatData[j]);
+                }
             }
         }
     });
 }
 
 function renderChat(chatBox, chatMessage) {
-    document.createElement("li");
+    let listElement = document.createElement("li");
+    if () {
 
-    chatBox.appendChild();
+    }
+    listElement.innerText = chatMessage.msg;
+    chatBox.appendChild(listElement);
 }
 
 window.setInterval(function () {
