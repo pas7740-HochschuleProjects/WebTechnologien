@@ -20,12 +20,11 @@ function loadChat() {
             let arrayLength = response.data.length;
             //Schleife über jedes Chatarray Element
             for(let j = 0; j < arrayLength; j++) {
-                console.log(chatData);
                 let messageFound = false;
-                let chatBoxEinträge = chatBox.children;
+    
                 //foreach Schleife über jedes li Element in der Chatbox
-                for (let child of chatBoxEinträge) {
-                    messageFound=false;
+                for (let child of chatBox.children) {
+
                     //wenn id noch nicht vorhanden dann ist es eine neue Nachricht -> renderChat()
                     if (child.id == j) {
                         messageFound = true;
@@ -55,4 +54,5 @@ window.setInterval(function () {
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
     postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
+    
 }
