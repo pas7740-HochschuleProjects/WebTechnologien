@@ -36,9 +36,6 @@ function loadChat() {
 
 function renderChat(chatBox, chatMessage) {
     let listElement = document.createElement("li");
-    if () {
-
-    }
     listElement.innerText = chatMessage.msg;
     chatBox.appendChild(listElement);
 }
@@ -49,7 +46,5 @@ window.setInterval(function () {
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
-
     postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
-
 }
