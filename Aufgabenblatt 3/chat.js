@@ -1,5 +1,5 @@
 let chatData = [];
-
+let chatBox = document.getElementById("chatbox");
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -13,7 +13,6 @@ let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
 function loadChat() {
-    let chatBox = document.getElementById("chatbox");
     getRequest("message/" + friendName).then((response) => {
         if (response.status == 200) {
             chatData = response.data;
@@ -24,7 +23,7 @@ function loadChat() {
                 
                 //foreach Schleife über jedes li Element in der Chatbox
                 for (let child of chatBox.children) {
-                        
+
                     //wenn id noch nicht vorhanden dann ist es eine neue Nachricht -> renderChat()
                     if (child.id == j) {
                         messageFound = true;
