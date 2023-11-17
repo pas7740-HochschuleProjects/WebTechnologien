@@ -18,7 +18,6 @@ function loadChat() {
             chatData = response.data;
             let arrayLength = response.data.length;
             //Schleife über jedes Chatarray Element
-            
             for(let j = 0;  j < arrayLength; j++) {
                 let messageFound = false;
                 
@@ -33,10 +32,10 @@ function loadChat() {
                     
                 }
 
-                if(messageFound == true) {
-                   renderChat(chatBox, chatData[j]);
-                   console.log(chatData[j]);
-                   console.log(chatData);
+                if(!messageFound) {
+                   renderChat(chatBox, chatData[j], j);
+                //    console.log(chatData[j]);
+                //    console.log(chatData);
                    
                 }
             }
@@ -44,11 +43,11 @@ function loadChat() {
     });
 }
 
-function renderChat(chatBox, chatMessage) {
+function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
-    
     let listElement = document.createElement("li");
     listElement.innerText = chatMessage.msg;
+    listElement.id = id;
     chatBox.appendChild(listElement);
     
 }
