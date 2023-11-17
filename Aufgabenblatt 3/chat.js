@@ -18,7 +18,8 @@ function loadChat() {
             chatData = response.data;
             let arrayLength = response.data.length;
             //Schleife über jedes Chatarray Element
-            for(let j = 0; j < arrayLength; j++) {
+            
+            for(let j = 0;  j < arrayLength; j++) {
                 let messageFound = false;
                 
                 //foreach Schleife über jedes li Element in der Chatbox
@@ -33,7 +34,10 @@ function loadChat() {
                 }
 
                 if(messageFound == true) {
-                    renderChat(chatBox, chatData[j]);
+                   renderChat(chatBox, chatData[j]);
+                   console.log(chatData[j]);
+                   console.log(chatData);
+                   
                 }
             }
         }
@@ -42,9 +46,11 @@ function loadChat() {
 
 function renderChat(chatBox, chatMessage) {
     //create li with chatmessage
+    
     let listElement = document.createElement("li");
     listElement.innerText = chatMessage.msg;
     chatBox.appendChild(listElement);
+    
 }
 
 window.setInterval(function () {
