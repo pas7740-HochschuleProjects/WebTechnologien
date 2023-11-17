@@ -18,15 +18,22 @@ function loadChat() {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
-            for (let j = 0; j < arrayLength; j++) {
+            //Schleife über jedes Chatarray Element
+            for(let j = 0; j < arrayLength; j++) {
+                console.log(chatData);
                 let messageFound = false;
-                for (let child of chatBox.children) {
+                let chatBoxEinträge = chatBox.children;
+                //foreach Schleife über jedes li Element in der Chatbox
+                for (let child of chatBoxEinträge) {
+                    messageFound=false;
+                    //wenn id noch nicht vorhanden dann ist es eine neue Nachricht -> renderChat()
                     if (child.id == j) {
                         messageFound = true;
                         break;
                     }
+                    
                 }
-                if (messageFound == true) {
+                if(messageFound == true) {
                     renderChat(chatBox, chatData[j]);
                 }
             }
@@ -35,6 +42,7 @@ function loadChat() {
 }
 
 function renderChat(chatBox, chatMessage) {
+    //create li with chatmessage
     let listElement = document.createElement("li");
     listElement.innerText = chatMessage.msg;
     chatBox.appendChild(listElement);
