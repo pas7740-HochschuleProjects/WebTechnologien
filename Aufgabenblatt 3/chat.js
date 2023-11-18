@@ -34,9 +34,6 @@ function loadChat() {
 
                 if (!messageFound) {
                     renderChat(chatBox, chatData[j], j);
-                    //    console.log(chatData[j]);
-                    //    console.log(chatData);
-
                 }
             }
         }
@@ -49,7 +46,6 @@ function renderChat(chatBox, chatMessage, id) {
     listElement.innerText = chatMessage.msg;
     listElement.id = id;
     chatBox.appendChild(listElement);
-
 }
 
 window.setInterval(function () {
@@ -59,4 +55,6 @@ window.setInterval(function () {
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
     postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
+    //remove the input text for the submitfeeling
+    document.getElementById("textsubmit").oninput(document.getElementById("textsubmit").value = "");
 }
