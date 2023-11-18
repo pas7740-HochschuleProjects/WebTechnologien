@@ -6,17 +6,17 @@ const REQUEST_TYPE = {
 };
 
 async function postRequest(endpoint, body){
-    return await sendRequest(REQUEST_TYPE.POST, endpoint, body);
+    return await sendRequest(REQUEST_TYPE.POST, endpoint, body, true);
 }
 
 async function getRequest(endpoint){
-    return await sendRequest(REQUEST_TYPE.GET, endpoint, undefined);
+    return await sendRequest(REQUEST_TYPE.GET, endpoint, undefined, true);
 }
 
-async function sendRequest(requestType, endpoint, body) {
+async function sendRequest(requestType, endpoint, body, auth) {
     let url = BASE_URL + "/" + COLLECTION_ID + "/" + endpoint;
     let requestBody = (typeof body !== "undefined") ? JSON.stringify(body) : undefined;
-    let header =
+    let tokenHeader =
     {
         headers: {
             'Content-Type': 'application/json',
@@ -25,7 +25,15 @@ async function sendRequest(requestType, endpoint, body) {
         method: requestType,
         body: requestBody
     };
-    return await fetch(url, header)
+    let basicHeader =
+    {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: requestType,
+        body: requestBody
+    };
+    return await fetch(url, (auth) ? tokenHeader : basicHeader)
         .then(async (response) => {
             let data = await response.json().catch((error)=>{});
             return {

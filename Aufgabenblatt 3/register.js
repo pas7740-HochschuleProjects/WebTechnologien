@@ -12,8 +12,8 @@ form.addEventListener('input', (e) => {
     let UserMessages = [];
     let PasswordMessages = [];
     let ConfirmMessages = [];
-    let checkA = 0;
-    let checkB = 0;
+    let checkA = false;
+    let checkB = false;
 
     // Check if Username has at least 3 characters
     if (username.value.length < 3) {
@@ -24,19 +24,19 @@ form.addEventListener('input', (e) => {
     } else {
         document.getElementById("username").style.border = "2px solid green";
         UserErrorElement.innerText = "";
-        checkA = 1;
+        checkA = true;
     }
 
     // Check if Username is already used
-    getRequest("user/" + username.value).then((response)=>{
-        if (xmlhttp.status == 204) {
+    sendRequest(REQUEST_TYPE.GET, "user/" + username.value, undefined, false).then((response)=>{
+        if (response.status == 204) {
             UserMessages.push('Username is already used');
             document.getElementById("username").style.border = "2px solid red";
             UserErrorElement.innerText = UserMessages.join(', ');    //print error message
             submitBTN.setAttribute('disabled', 'disabled');                                     //prevent submitting
-            console.log("Exists");
-        } else if (xmlhttp.status == 404) {
-            console.log("Does not exist");
+            console.log("User exists");
+        } else if (response.status == 404) {
+            console.log("User does not exist");
         }
     });
 
@@ -60,12 +60,12 @@ form.addEventListener('input', (e) => {
         } else {
             document.getElementById("confirm").style.border = "2px solid green";
             ConfirmErrorElement.innerText = "";
-            checkB = 1;
+            checkB = true;
         }
     }
 
     // prevent cheating on Validation :)
-    if ((checkA + checkB) == 2) {
+    if (checkA && checkB) {
         submitBTN.removeAttribute('disabled');
     }
 })

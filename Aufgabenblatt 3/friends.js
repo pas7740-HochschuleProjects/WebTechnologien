@@ -1,22 +1,14 @@
 let userList = [], friendList = [], requestList = [];
 
-let friendSelector = document.getElementById("friend-selector");
+loadFriends();
 
 window.setInterval(()=>loadFriends(), 1000);
 
-getRequest("user").then((response)=>{
-    userList = response.data;
-    for(let username of response.data){
-        if(!isCurrentUser(username)){
-            if(!isUserInList(friendList, username)){
-                // Add Check user
-                var option = document.createElement('option');
-                option.value = username;
-                friendSelector.appendChild(option);
-            }
-        }
-    }
-});
+function updateUI(){
+    updateFriendSelectorList();
+    updateFriendRequests();
+    updateFriendList();
+}
 
 function loadFriends(){
     getRequest("friend").then((response)=>{
@@ -36,11 +28,34 @@ function loadFriends(){
         }
     });
 
-    //console.log("User: " + userList);
-    //console.log("Friends: " + friendList);
-    //console.log("Requested: " + requestList);
-    updateFriendRequests();
-    updateFriendList();
+    updateUI();
+}
+
+function updateFriendSelectorList(){
+    getRequest("user").then((response)=>{
+        userList = response.data;
+        for(let username of response.data){
+            if(!isCurrentUser(username)){
+                if(!isUserInList(friendList, username)){
+                    let optionFound = false;
+                    let friendSelector = document.getElementById("friend-selector");
+                    // Add Check user
+                    for(let child of friendSelector.children){
+                        if(child.id == username){
+                            optionFound = true;
+                            break;
+                        }
+                    }
+                    if(!optionFound){
+                        var option = document.createElement('option');
+                        option.value = username;
+                        option.id = username;
+                        friendSelector.appendChild(option);
+                    }
+                }
+            }
+        }
+    });
 }
 
 function updateFriendRequests(){
