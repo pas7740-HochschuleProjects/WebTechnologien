@@ -1,5 +1,16 @@
 let chatData = [];
 let chatBox = document.getElementById("chatbox");
+
+let friendName = getChatpartner();
+let überSchrift = document.getElementById("heading");
+überSchrift.innerText = "Chat with " + friendName;
+
+loadChat();
+
+window.setInterval(function () {
+    loadChat();
+}, 1000);
+
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -7,10 +18,6 @@ function getChatpartner() {
     console.log("Friend:", friendValue);
     return friendValue;
 }
-
-let friendName = getChatpartner();
-let überSchrift = document.getElementById("heading");
-überSchrift.innerText = "Chat with " + friendName;
 
 function loadChat() {
     getRequest("message/" + friendName).then((response) => {
@@ -43,18 +50,15 @@ function loadChat() {
 function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
     let listElement = document.createElement("li");
-    listElement.innerText = chatMessage.msg;
+    listElement.innerText = chatMessage.from + ": " + chatMessage.msg;
     listElement.id = id;
+    listElement.classList.add("item");
     chatBox.appendChild(listElement);
 }
-
-window.setInterval(function () {
-    loadChat();
-}, 1000)
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
     postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
     //remove the input text for the submitfeeling
-    document.getElementById("textsubmit").oninput(document.getElementById("textsubmit").value = "");
+    document.getElementById("textsubmit").value = "";
 }

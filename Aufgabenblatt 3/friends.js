@@ -1,4 +1,4 @@
-let userList = [], friendList = [], requestList = [];
+let userList = [], requestList = [], friendList = [];
 
 loadFriends();
 
@@ -10,8 +10,8 @@ function updateUI(){
     updateFriendList();
 }
 
-function loadFriends(){
-    getRequest("friend").then((response)=>{
+async function loadFriends(){
+    await getRequest("friend").then((response)=>{
         if(response.status == 200){
             for(let user of response.data){
                 if(user.status == "accepted"){
@@ -28,7 +28,7 @@ function loadFriends(){
         }
     });
 
-    updateUI();
+    await updateUI();
 }
 
 function updateFriendSelectorList(){
@@ -37,20 +37,22 @@ function updateFriendSelectorList(){
         for(let username of response.data){
             if(!isCurrentUser(username)){
                 if(!isUserInList(friendList, username)){
-                    let optionFound = false;
-                    let friendSelector = document.getElementById("friend-selector");
-                    // Add Check user
-                    for(let child of friendSelector.children){
-                        if(child.id == username){
-                            optionFound = true;
-                            break;
+                    if(!isUserInList(requestList, username)){
+                        let optionFound = false;
+                        let friendSelector = document.getElementById("friend-selector");
+                        // Add Check user
+                        for(let child of friendSelector.children){
+                            if(child.id == username){
+                                optionFound = true;
+                                break;
+                            }
                         }
-                    }
-                    if(!optionFound){
-                        var option = document.createElement('option');
-                        option.value = username;
-                        option.id = username;
-                        friendSelector.appendChild(option);
+                        if(!optionFound){
+                            var option = document.createElement('option');
+                            option.value = username;
+                            option.id = username;
+                            friendSelector.appendChild(option);
+                        }
                     }
                 }
             }
