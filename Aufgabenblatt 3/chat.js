@@ -17,6 +17,7 @@ function loadChat() {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
+            console.log(chatData);
             //Schleife über jedes Chatarray Element
             for (let j = 0; j < arrayLength; j++) {
                 let messageFound = false;
@@ -43,7 +44,7 @@ function loadChat() {
 function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
     let listElement = document.createElement("li");
-    listElement.innerText = chatMessage.msg;
+    listElement.innerText = chatMessage.from + ": " + chatMessage.msg;
     listElement.id = id;
     chatBox.appendChild(listElement);
 }
