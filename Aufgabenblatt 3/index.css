@@ -176,3 +176,13 @@ textarea {
 #chatbox {
     list-style: none;
 }
+
+#chatbox li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#chatbox li #timestamp{
+    margin-right: var(--standard-margin);
+}

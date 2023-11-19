@@ -50,28 +50,22 @@ function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
     
     //Template for the timeStamp
-    let ulElement = document.getElementById("chatBox_ul");
-    ulElement = ulElement.children[0];
-    let liTemplate = document.getElementById("chatbox-template");
-    ulElement.appendChild(liTemplate.contentEditable.cloneNode(true));
-    let liElement = ulElement.children[ulElement.children.length-1];
+    let messageTemplate = document.getElementById("message-template");
+
+    chatBox.appendChild(messageTemplate.content.cloneNode(true));
+    let liElement = chatBox.children[chatBox.children.length-1];
     liElement.id = id;
+    liElement.classList.add("item");
     liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
-    
 
+    // Timestamp
+    let time = new Date(chatMessage.time);
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
+    liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
 
-
-
-    let listElement = document.createElement("li");
-    let timeStamp = chatMessage.time;
-    timeStamp = new Date(timeStamp);
-    let hours = timeStamp.getHours();
-    let minutes = timeStamp.getMinutes();
-    let seconds = timeStamp.getSeconds();
-    listElement.innerText = chatMessage.from + ": " + chatMessage.msg + hours+":"+minutes+":"+seconds;
-    listElement.id = id;
-    listElement.classList.add("item");
-    chatBox.appendChild(listElement);
+    chatBox.appendChild(liElement);
 }
 
 function sendMessage() {

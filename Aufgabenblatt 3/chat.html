@@ -26,11 +26,8 @@
 
             <hr>
 
-            <div class="container" id="chatBox_ul">
+            <div class="container">
                 <ul id="chatbox">
-                    <template id="chatbox-template">
-                        <li class="chatnachricht"></li>
-                    </template>
                 </ul>
             </div>
 
@@ -41,5 +38,9 @@
                 <button onclick="sendMessage()">Send</button>
             </div>
 </body>
+
+<template id="message-template">
+    <li class="chatnachricht"><text></text><text id="timestamp"></text></li>
+</template>
 
 </html>
