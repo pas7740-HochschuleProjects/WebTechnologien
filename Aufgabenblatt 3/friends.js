@@ -130,17 +130,19 @@ function addFriend(){
     let username = friendRequestName.value;
     if(isUserInList(userList, username)){
         if(!isUserInList(friendList, username)){
-            if(!isCurrentUser(username)){
-                postRequest("friend",  {username: username}).then((response)=>{
-                    if(response.status == 204){
-                        console.log("Okay");
-                        friendRequestName.style.border = "1px solid black";
-                        friendRequestName.value = "";
-                        return;
-                    }
-                    console.log("Error");
-                });
-                return;
+            if(!isUserInList(requestList, username)){
+                if(!isCurrentUser(username)){
+                    postRequest("friend",  {username: username}).then((response)=>{
+                        if(response.status == 204){
+                            console.log("Okay");
+                            friendRequestName.style.border = "1px solid black";
+                            friendRequestName.value = "";
+                            return;
+                        }
+                        console.log("Error");
+                    });
+                    return;
+                }
             }
         }
     }
