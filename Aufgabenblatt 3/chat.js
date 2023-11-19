@@ -48,6 +48,20 @@ function loadChat() {
 
 function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
+    
+    //Template for the timeStamp
+    let ulElement = document.getElementById("chatBox_ul");
+    ulElement = ulElement.children[0];
+    let liTemplate = document.getElementById("chatbox-template");
+    ulElement.appendChild(liTemplate.contentEditable.cloneNode(true));
+    let liElement = ulElement.children[ulElement.children.length-1];
+    liElement.id = id;
+    liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
+    
+
+
+
+
     let listElement = document.createElement("li");
     let timeStamp = chatMessage.time;
     timeStamp = new Date(timeStamp);
