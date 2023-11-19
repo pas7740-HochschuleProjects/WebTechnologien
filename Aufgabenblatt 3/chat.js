@@ -15,7 +15,6 @@ function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
     const friendValue = queryParams.get("friend");
-    console.log("Friend:", friendValue);
     return friendValue;
 }
 
