@@ -24,7 +24,6 @@ function loadChat() {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
-            console.log(chatData);
             //Schleife über jedes Chatarray Element
             for (let j = 0; j < arrayLength; j++) {
                 let messageFound = false;
