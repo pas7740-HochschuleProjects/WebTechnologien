@@ -1,12 +1,12 @@
 const BASE_URL = "https://online-lectures-cs.thi.de/chat"
-const COLLECTION_ID = "dff43a26-81cf-4589-a798-82537ce7c683"
+const COLLECTION_ID = "d931beb6-18c7-41ba-959e-d41d1cebc6cc"
 
 // User Toms
 const USERNAME = "Tom"
 const PASSWORD = "12345678"
-const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwNDE0NTE1fQ._eiO1CRTLZ-2jqIalNmZxWs-aJYz1hvmaUCwarh46WM'
+const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNzAwNDE5NzMzfQ.Se1R82GOSNIgT4JsPtCFIdDB5DjvVhqNnMHHGtVPMrU'
 
 // User Jerry
 // const USERNAME = "Jerry"
 // const PASSWORD = "87654321"
-// const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDA0MTQ1MTV9.YjGOvz08fVi8U3HZzmVwssFrq3AA1hIbHB_Vbqo2xl8'
+// const ACCESS_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSmVycnkiLCJpYXQiOjE3MDA0MTk3MzN9.O9RP4u6pXauHbckacS8YzhFFUWdJGRN5mSv8yWf5iaA'
