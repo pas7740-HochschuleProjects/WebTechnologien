@@ -49,7 +49,12 @@ function loadChat() {
 function renderChat(chatBox, chatMessage, id) {
     //create li with chatmessage
     let listElement = document.createElement("li");
-    listElement.innerText = chatMessage.from + ": " + chatMessage.msg;
+    let timeStamp = chatMessage.time;
+    timeStamp = new Date(timeStamp);
+    let hours = timeStamp.getHours();
+    let minutes = timeStamp.getMinutes();
+    let seconds = timeStamp.getSeconds();
+    listElement.innerText = chatMessage.from + ": " + chatMessage.msg + hours+":"+minutes+":"+seconds;
     listElement.id = id;
     listElement.classList.add("item");
     chatBox.appendChild(listElement);
