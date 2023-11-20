@@ -1,5 +1,7 @@
 let userList = [], requestList = [], friendList = [];
 
+// deleteFriend("Jerry");
+
 loadFriends();
 
 window.setInterval(()=>loadFriends(), 1000);
@@ -31,8 +33,8 @@ async function loadFriends(){
     await updateUI();
 }
 
-function updateFriendSelectorList(){
-    getRequest("user").then((response)=>{
+async function updateFriendSelectorList(){
+    await getRequest("user").then((response)=>{
         userList = response.data;
         for(let username of response.data){
             if(!isCurrentUser(username)){
@@ -155,4 +157,11 @@ function isUserInList(list, username){
 
 function isCurrentUser(username){
     return username == USERNAME;
+}
+
+// Test
+function deleteFriend(username){
+    sendRequest(REQUEST_TYPE.DELETE, "friend/" + username, undefined, true).then((res)=>{
+        console.log(res);
+    })
 }
