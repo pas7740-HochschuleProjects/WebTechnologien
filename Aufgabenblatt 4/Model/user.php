@@ -9,11 +9,11 @@ function getUsername(){
     return $this->username;
 }
 
-__construct(&$username){
+public function __construct(&$username){
     $this->username = $username;
 }
 
-public __toString(){
+public function __toString(){
     return "User ist ".$this->username;
 }
 
