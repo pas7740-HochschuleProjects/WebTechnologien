@@ -9,11 +9,11 @@ class Friend implements JsonSerializable{
     private $status;
 
     public function __construct($username = null){
-        $this->username = username;
+        $this->username = $username;
     }
 
     public function __toString(){
-        return "User ist: ".$this->username
+        return "User ist: ".$this->username;
     }
 
     public function getStatus(){

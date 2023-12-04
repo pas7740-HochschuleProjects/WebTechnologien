@@ -2,12 +2,12 @@
 
 require("start.php");
 
-if($this->username != null){
-    header("Location: friends.php");
+if(isset($_SESSION["user"])){
+  header("Location: friends.php");
 }
 
-if(login()==true){
-  $this->username = username;
+if($service->login("Tom", "12345678")==true){
+  $_SESSION["user"] = new Model\User("Tom");
   header("Location: friends.php");
 } else {
     echo("Login Fehler!");
