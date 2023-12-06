@@ -28,7 +28,7 @@ form.addEventListener('input', (e) => {
     }
 
     // Check if Username is already used
-    sendRequest(REQUEST_TYPE.GET, "user/" + username.value, undefined, false).then((response)=>{
+    phpRequest(REQUEST_TYPE.GET, "http://localhost/php/ajax_check_user", undefined, false).then((response)=>{
         if (response.status == 204) {
             UserMessages.push('Username is already used');
             document.getElementById("username").style.border = "2px solid red";
