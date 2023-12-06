@@ -20,18 +20,22 @@ $confirmpassword= $_POST['confirm'];
 $usernamelength= strlen($username);
 $passwordlength= strlen($password);
 
-$a;
-$b;
+$a = false;
+$b = false;
 
 // Username Validation
 
-if($usernamelength < 3) {
-    echo("Username requires at least 3 characters");
-}
-else {
+if ($usernamelength < 3) {
+    echo ("Username requires at least 3 characters");
+} else {
+    $url = "ajax_check_user.php?user=" . $username;                 // still an Error to fix
+    $response = file_get_contents($url);
 
-
-    $a = true;
+    if ($response = 204) {
+        echo ("Username already exists!");
+    } else if ($response = 404) {
+        $a = true;
+    }
 }
 
 // PW Validation
@@ -46,7 +50,6 @@ else {
         $b = true;
     }
 }
-
 
 
 if ($a && $b) {
