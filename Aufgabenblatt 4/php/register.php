@@ -4,15 +4,14 @@ require("start.php");
 
 // check if empty
 if(empty($_POST["username"])){
-   header("Location: /register.html");
+    echo ("Empty!");
 }
 if(empty($_POST["password"])){
-   header("Location: /register.html");
+    echo ("Empty!");
 }
 if(empty($_POST["confirm"])){
-   header("Location: /register.html");
+    echo ("Empty!");
 }
-
 
 $username= $_POST['username'];
 $password= $_POST['password'];
@@ -28,21 +27,20 @@ $b;
 
 if($usernamelength < 3) {
     echo("Username requires at least 3 characters");
-    header("Location: /register.html");
 }
 else {
+
+
     $a = true;
 }
 
 // PW Validation
 if($passwordlength < 8) {
     echo("Password requires at least 8 characters");
-    header("Location: /register.html");
 }
 else {
     if($password != $confirmpassword){
         echo("Password requires at least 8 characters");
-        header("Location: /register.html");
     }
     else {
         $b = true;
