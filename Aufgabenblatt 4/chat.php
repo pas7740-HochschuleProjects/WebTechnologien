@@ -19,7 +19,7 @@
 <body>
     <h1 id="heading"></h1>
 
-    <a class="blue-link" href="friends.html">
+    <a class="blue-link" href="friends.php">
         < Back</a> |
             <a class="blue-link" href="profile.html">Profile</a> |
             <a class="red-link" href="friends.html">Remove Friend</a>

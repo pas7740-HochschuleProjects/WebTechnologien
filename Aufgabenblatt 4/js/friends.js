@@ -2,15 +2,15 @@ let userList = [], requestList = [], friendList = [];
 
 // deleteFriend("Jerry");
 
-loadFriends();
+// loadFriends();
 
-window.setInterval(()=>loadFriends(), 1000);
+// window.setInterval(()=>loadFriends(), 1000);
 
-function updateUI(){
-    updateFriendSelectorList();
-    updateFriendRequests();
-    updateFriendList();
-}
+// function updateUI(){
+//     updateFriendSelectorList();
+//     updateFriendRequests();
+//     updateFriendList();
+// }
 
 async function loadFriends(){
     await getRequest("friend").then((response)=>{

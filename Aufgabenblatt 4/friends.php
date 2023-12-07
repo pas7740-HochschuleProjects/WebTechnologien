@@ -14,13 +14,32 @@
     <script defer src="./js/friends.js"></script>
 </head>
 
+<?php
+
+require("start.php");
+
+if(empty($_SESSION["user"])){
+    header("Location: login.php");
+}
+
+$friends = $service->loadFriends();
+
+?>
+
 <body>
     <h1>Friends</h1>
-    <a class="blue-link" href="logout.html">< Logout </a> | 
-    <a class="blue-link" href="settings.html">Settings</a>
+    <a class="blue-link" href="logout.php">< Logout </a> | 
+    <a class="blue-link" href="settings.php">Settings</a>
     <hr>
     <div class="container empty" id="friend-container">
         <ul>
+            <?php foreach ($friends as $friend) {?>
+            <li class="item">
+                <a href="chat.php" class="blue-link">
+                    <?= $friend->getUsername() ?>
+                </a>
+            </li>
+            <?php } ?>
         </ul>
     </div>
     <hr id="friend-break-line">
@@ -34,10 +53,6 @@
         <button onclick="addFriend()">Add</button>
     </div>
 </body>
-
-<template id="friend-template">
-    <li class="item"><a href="chat.html" class="blue-link"></a></li>
-</template>
 
 <template id="friend-request-template">
     <li class="list-item">
