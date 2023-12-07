@@ -22,9 +22,9 @@ form.addEventListener('input', (e) => {
         UserErrorElement.innerText = UserMessages.join(', ');    //print error message
         submitBTN.setAttribute('disabled', 'disabled');         //prevent submitting
     } else {
-       
+        checkA = true;
         // Check if Username is already used
-        phpRequest(REQUEST_TYPE.GET, "/php/ajax_check_user.php?user=" + username.value, undefined, false).then((response) => {
+        phpRequest(REQUEST_TYPE.GET, "../ajax_check_user.php?user=" + username.value, undefined, false).then((response) => {
             if (response.status == 204) {
                 UserMessages.push('Username is already used');
                 document.getElementById("username").style.border = "2px solid red";
@@ -34,7 +34,6 @@ form.addEventListener('input', (e) => {
             } else if (response.status == 404) {
                 document.getElementById("username").style.border = "2px solid green";
                 UserErrorElement.innerText = "";
-                checkA = true;
                 console.log("User does not exist");
             }
         });
