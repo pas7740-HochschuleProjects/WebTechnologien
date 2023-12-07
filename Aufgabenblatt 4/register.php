@@ -18,69 +18,63 @@
 
 require("start.php");
 
-$username = $_POST["username"];
-$password = $_POST["password"];
-$confirm = $_POST["confirm"];
-var_dump($username);
-var_dump($password);
-var_dump($confrim);
+if (isset($_POST["submit"])) {
+
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $confirm = $_POST["confirm"];
 
     // check if empty
-    if(empty($username)){
+    if (empty($username)) {
         echo ("Username empty!");
     }
-    if(empty($password)){
+    if (empty($password)) {
         echo ("Password empty!");
     }
-    if(empty($confirm)){
+    if (empty($confirm)) {
         echo ("Confirm empty!");
     }
 
-    $usernamelength= strlen($username);
-    $passwordlength= strlen($password);
+    $usernamelength = strlen($username);
+    $passwordlength = strlen($password);
 
     $a = false;
     $b = false;
 
     // Username Validation
-
     if ($usernamelength < 3) {
         echo ("Username requires at least 3 characters");
     } else {
         $response = $service->userExists($username);
         if ($response) {
-            echo ("Username already exists!");
+            echo ("Username already exists! ");
         } else {
             $a = true;
         }
     }
 
     // PW Validation
-    if($passwordlength < 8) {
-        echo("Password requires at least 8 characters");
-    }
-    else {
-        if($password != $confirm){
-            echo("Password requires at least 8 characters");
-        }
-        else {
+    if ($passwordlength < 8) {
+        echo ("Password requires at least 8 characters");
+    } else {
+        if ($password != $confirm) {
+            echo ("Password requires at least 8 characters");
+        } else {
             $b = true;
         }
     }
-
 
     if ($a && $b) {
         if ($service->register($username, $password) == true) {
             $_SESSION["user"] = new Model\User($username);
             header("Location: friends.php");
         } else {
-            echo ("Register Error!");
+            echo ("Registration failed!");
         }
+    } else {
+        echo ("Registration failed!");
     }
-    else {
-        echo ("Validation failed!");
-    }
-
+}
 
 ?>
 
@@ -100,7 +94,7 @@ var_dump($confrim);
         </fieldset>
 
         <button class="secondary" formaction="login.php">Cancel</button>
-        <button type="submit" id="submitBTN" disabled="disabled" class="primary" >Create Account</button>
+        <button name="submit" type="submit" id="submitBTN" disabled="disabled" class="primary" >Create Account</button>
     </form>
 
 </body>
