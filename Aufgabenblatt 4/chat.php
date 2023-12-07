@@ -16,6 +16,18 @@
 
 </head>
 
+<?php
+
+require("start.php");
+
+if(empty($_SESSION["user"])){
+    header("Location: login.php");
+} else if(empty($_GET['friend'])){
+    header("Location: friends.php");
+}
+
+?>
+
 <body>
     <h1 id="heading"></h1>
 
@@ -34,8 +46,8 @@
             <hr>
 
             <div class="input-container">
-                <input id="textsubmit" type="text" placeholder="New Message" />
-                <button onclick="sendMessage()">Send</button>
+                <input id="textsubmit" type="text" placeholder="New Message"/>
+                <button onclick="sendMessage()" >Send</button>
             </div>
 </body>
 

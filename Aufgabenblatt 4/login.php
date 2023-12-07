@@ -30,10 +30,10 @@ $login_failed = false;
         <fieldset>
             <legend>Login</legend>
             <label> <text>Username</text> <input type="text" placeholder="Username" id="username" name="username"></label>
-            <label> <text>Password</text> <input type="text" placeholder="Password" id="password" name="password"></label>
+            <label> <text>Password</text> <input type="password" placeholder="Password" id="password" name="password"></label>
         </fieldset>
         <button class="secondary" formaction="register.php">Register</button>
-        <button class="primary" type="submit" name="Login">Login</button>
+        <button class="primary" type="submit">Login</button>
     </form>
     <?php 
     if($_SERVER['REQUEST_METHOD'] == "POST"){

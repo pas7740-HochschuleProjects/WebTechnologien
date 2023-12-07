@@ -1,4 +1,3 @@
-<!-- in jede andere php Datei bitte " require("start.php"); " einfügen -->
 
 <?php
 

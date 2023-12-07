@@ -19,7 +19,7 @@ function getChatpartner() {
 }
 
 function loadChat() {
-    getRequest("message/" + friendName).then((response) => {
+    phpRequest(REQUEST_TYPE.GET,"ajax_load_messages.php?to=" + friendName, undefined, false).then((response) => {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
@@ -71,7 +71,7 @@ function renderChat(chatBox, chatMessage, id) {
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
-    postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
+    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, msg: newchatData}, false);
     //remove the input text for the submitfeeling
     document.getElementById("textsubmit").value = "";
 }

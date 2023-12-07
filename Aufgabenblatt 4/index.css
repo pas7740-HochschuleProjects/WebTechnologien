@@ -169,7 +169,7 @@ textarea {
     margin-bottom: 5px;
 }
 
-#friend-break-line {
+#friend-break-line.invisible{
     display: none;
 }
 
