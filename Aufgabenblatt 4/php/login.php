@@ -7,9 +7,10 @@ $password="";
 if(isset($_SESSION["user"])){
   header("Location: friends.php");
 }
-if(isset($_POST["Login"])){
-  $username = $_POST["username"];
-  $password = $_POST["password"];
+
+if(isset($_POST['Login'])){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 }
 
 if($service->login($username, $password)==true){
