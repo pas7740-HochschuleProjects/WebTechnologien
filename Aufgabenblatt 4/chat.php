@@ -4,7 +4,7 @@
 require("start.php");
 if(empty($_SESSION["user"])){
     header("Location: login.php");
-} else if(getChatpartner() == null){
+} else if(empty($_GET['friend'])){
     header("Location: friends.php");
 }
 
@@ -44,10 +44,8 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="input-container">
-                <form method="get" action="chat.php">
-                <input id="textsubmit" type="text" placeholder="New Message"/>
-                <button type="submit" name="Send">Send</button>
-                </form>
+                    <input id="textsubmit" type="text" placeholder="New Message"/>
+                    <button onclick="sendMessage()" >Send</button>
             </div>
 </body>
 

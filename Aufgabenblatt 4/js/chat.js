@@ -5,12 +5,6 @@ let friendName = getChatpartner();
 let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
-loadChat();
-
-window.setInterval(function () {
-    loadChat();
-}, 1000);
-
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -46,32 +40,9 @@ function loadChat() {
     });
 }
 
-function renderChat(chatBox, chatMessage, id) {
-    //Template for the timeStamp
-    
-    let messageTemplate = document.getElementById("message-template");
-    chatBox.appendChild(messageTemplate.content.cloneNode(true));
-    let liElement = chatBox.children[chatBox.children.length-1];
-    liElement.id = id;
-    liElement.classList.add("item");
-
-    //create liElement with chatmessage
-    liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
-
-    // Timestamp
-    
-    let time = new Date(chatMessage.time);
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-    let seconds = time.getSeconds();
-    liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
-
-    chatBox.appendChild(liElement);
-}
-
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
-    postRequest("message", { to: friendName, message: newchatData, from: USERNAME });
+    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, message: newchatData}, false);
     //remove the input text for the submitfeeling
     document.getElementById("textsubmit").value = "";
 }
