@@ -5,6 +5,12 @@ let friendName = getChatpartner();
 let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
+loadChat();
+
+window.setInterval(function () {
+    loadChat();
+}, 1000);
+
 function getChatpartner() {
     const url = new URL(window.location.href);
     const queryParams = url.searchParams;
@@ -13,7 +19,7 @@ function getChatpartner() {
 }
 
 function loadChat() {
-    getRequest("message/" + friendName).then((response) => {
+    phpRequest(REQUEST_TYPE.GET,"ajax_load_messages.php?to=" + friendName, undefined, false).then((response) => {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
@@ -38,6 +44,29 @@ function loadChat() {
             }
         }
     });
+}
+
+function renderChat(chatBox, chatMessage, id) {
+    //Template for the timeStamp
+    
+    let messageTemplate = document.getElementById("message-template");
+    chatBox.appendChild(messageTemplate.content.cloneNode(true));
+    let liElement = chatBox.children[chatBox.children.length-1];
+    liElement.id = id;
+    liElement.classList.add("item");
+
+    //create liElement with chatmessage
+    liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
+
+    // Timestamp
+    
+    let time = new Date(chatMessage.time);
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
+    liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
+
+    chatBox.appendChild(liElement);
 }
 
 function sendMessage() {
