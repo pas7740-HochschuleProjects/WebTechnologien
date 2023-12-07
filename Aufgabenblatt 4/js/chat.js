@@ -80,7 +80,7 @@ function renderChat(chatBox, chatMessage, id) {
         liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
     }
     chatBox.appendChild(liElement);
-
+}
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
