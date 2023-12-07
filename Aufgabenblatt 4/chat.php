@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+
+require("start.php");
+if(empty($_SESSION["user"])){
+    header("Location: login.php");
+} else if(getChatpartner() == null){
+    header("Location: friends.php");
+}
+
+?>
 <html>
 
 <head>
@@ -34,8 +44,10 @@
             <hr>
 
             <div class="input-container">
-                <input id="textsubmit" type="text" placeholder="New Message" />
-                <button onclick="sendMessage()">Send</button>
+                <form method="get" action="chat.php">
+                <input id="textsubmit" type="text" placeholder="New Message"/>
+                <button type="submit" name="Send">Send</button>
+                </form>
             </div>
 </body>
 

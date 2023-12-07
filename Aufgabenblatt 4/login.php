@@ -33,7 +33,7 @@ $login_failed = false;
             <label> <text>Password</text> <input type="text" placeholder="Password" id="password" name="password"></label>
         </fieldset>
         <button class="secondary" formaction="register.php">Register</button>
-        <button class="primary" type="submit" name="Login">Login</button>
+        <button class="primary" type="submit">Login</button>
     </form>
     <?php 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
