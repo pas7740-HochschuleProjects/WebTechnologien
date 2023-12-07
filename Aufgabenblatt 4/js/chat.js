@@ -64,10 +64,23 @@ function renderChat(chatBox, chatMessage, id) {
     let hours = time.getHours();
     let minutes = time.getMinutes();
     let seconds = time.getSeconds();
-    liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
-
+    if(hours<10){
+        liElement.children[1].innerText = "0"+hours+":"+minutes+":"+seconds;
+    } else if(minutes<10) {
+        liElement.children[1].innerText = hours+":0"+minutes+":"+seconds;    
+    } else if(seconds<10) {
+        liElement.children[1].innerText = hours+":"+minutes+":0"+seconds;
+    } else if((hours && minutes) <10) { 
+        liElement.children[1].innerText = "0"+hours+":0"+minutes+":"+seconds;
+    } else if ((hours && seconds)<10){
+        liElement.children[1].innerText = "0"+hours+":"+minutes+":0"+seconds;
+    } else if((hours && minutes && seconds)<10){
+        liElement.children[1].innerText = "0"+hours+":0"+minutes+":0"+seconds;
+    } else {
+        liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
+    }
     chatBox.appendChild(liElement);
-}
+
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
