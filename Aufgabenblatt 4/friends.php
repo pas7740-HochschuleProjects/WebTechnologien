@@ -45,7 +45,7 @@ foreach ($friends as $friend){
         <ul>
             <?php foreach ($friendList as $friend) {?>
             <li class="item">
-                <a href="chat.php" class="blue-link">
+                <a href="chat.php?friend=<?php echo $friend->getUsername();?>" class="blue-link">
                     <?php
                     if($friend->getStatus() == "accepted"){
                         echo $friend->getUsername();

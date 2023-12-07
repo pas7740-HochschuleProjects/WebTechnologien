@@ -1,14 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-require("start.php");
-if(empty($_SESSION["user"])){
-    header("Location: login.php");
-} else if(empty($_GET['friend'])){
-    header("Location: friends.php");
-}
-
-?>
 <html>
 
 <head>
@@ -25,6 +15,18 @@ if(empty($_SESSION["user"])){
     <script defer src="./js/chat.js"></script>
 
 </head>
+
+<?php
+
+require("start.php");
+
+if(empty($_SESSION["user"])){
+    header("Location: login.php");
+} else if(empty($_GET['friend'])){
+    header("Location: friends.php");
+}
+
+?>
 
 <body>
     <h1 id="heading"></h1>
@@ -44,8 +46,8 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="input-container">
-                    <input id="textsubmit" type="text" placeholder="New Message"/>
-                    <button onclick="sendMessage()" >Send</button>
+                <input id="textsubmit" type="text" placeholder="New Message"/>
+                <button onclick="sendMessage()" >Send</button>
             </div>
 </body>
 
