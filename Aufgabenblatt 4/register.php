@@ -18,22 +18,23 @@
 
 require("start.php");
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+$username = $_POST["username"];
+$password = $_POST["password"];
+$confirm = $_POST["confirm"];
+var_dump($username);
+var_dump($password);
+var_dump($confrim);
 
     // check if empty
-    if(empty($_POST["username"])){
-        echo ("Empty!");
+    if(empty($username)){
+        echo ("Username empty!");
     }
-    if(empty($_POST["password"])){
-        echo ("Empty!");
+    if(empty($password)){
+        echo ("Password empty!");
     }
-    if(empty($_POST["confirm"])){
-        echo ("Empty!");
+    if(empty($confirm)){
+        echo ("Confirm empty!");
     }
-
-    $username= $_POST['username'];
-    $password= $_POST['password'];
-    $confirmpassword= $_POST['confirm'];
 
     $usernamelength= strlen($username);
     $passwordlength= strlen($password);
@@ -59,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo("Password requires at least 8 characters");
     }
     else {
-        if($password != $confirmpassword){
+        if($password != $confirm){
             echo("Password requires at least 8 characters");
         }
         else {
@@ -80,7 +81,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo ("Validation failed!");
     }
 
-}
 
 ?>
 
