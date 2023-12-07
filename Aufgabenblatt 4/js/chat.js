@@ -42,7 +42,7 @@ function loadChat() {
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
-    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, message: newchatData}, false);
+    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, msg: newchatData}, false);
     //remove the input text for the submitfeeling
     document.getElementById("textsubmit").value = "";
 }
