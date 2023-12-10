@@ -40,7 +40,7 @@ if(isset($_POST["submit"])){
 <body>
     <h1>Profile Settings</h1>
 
-    <form method="post" action="settings.php">
+    <form method="post" action="settings.php" class="form-design">
         <fieldset>
             <legend>Base Data</legend>
             <label> <text>First Name</text> <input type="text" value="<?= $user->getFirstname() ?>"  placeholder="Your name" name="firstname" /></label>

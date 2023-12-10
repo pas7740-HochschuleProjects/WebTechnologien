@@ -26,7 +26,7 @@ $login_failed = false;
 <body>
     <img class="round-image" src="images\chat.png" width="90">
     <h1>Please sign in</h1>
-    <form method="post" action="login.php">
+    <form method="post" action="login.php" class="form-design">
         <fieldset>
             <legend>Login</legend>
             <label> <text>Username</text> <input type="text" placeholder="Username" id="username" name="username"></label>

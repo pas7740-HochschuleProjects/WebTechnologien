@@ -21,16 +21,41 @@ if(empty($_SESSION["user"])){
     header("Location: login.php");
 }
 
+$userList = $service->loadUsers();
 $friends = $service->loadFriends();
 $friendList = [];
 $requestList = [];
+$requestOptions = [];
 
+// Load friends
 foreach ($friends as $friend){
     if($friend->getStatus() == "accepted"){
         array_push($friendList, $friend);
     }
     else if($friend->getStatus() == "requested"){
         array_push($requestList, $friend);
+    }
+}
+
+// Load userList without me and friends
+foreach($userList as $user){
+    if($user != $_SESSION["user"]->getUsername()){
+        $isFriend = false;
+        foreach ($friends as $friend){
+            if($user == $friend->getUsername()){
+                $isFriend = true;
+                break;
+            }
+        }
+        if(!$isFriend){
+            array_push($requestOptions, $user);
+        }
+    }
+}
+
+if (isset($_POST["action"]) == "add-friend") {
+    if(isset($_POST["friendRequestname"])){
+        $service->friendRequest(new Model\Friend($_POST["friendRequestname"]));
     }
 }
 
@@ -66,16 +91,24 @@ foreach ($friends as $friend){
                     echo $request->getUsername();
                     ?>
                 </b></text>
-                <button name="action" submit="accept-friend">Accept</button>
-                <button name="action" submit="reject-friend">Reject</button>
+                <button name="action" value="accept-friend">Accept</button>
+                <button name="action" value="reject-friend">Reject</button>
             </li>
         <?php } ?>
     </ol>
     <hr>
     <div class="input-container">
-        <input type="text" placeholder="Add Friend to List" name="friendRequestname" id="friend-request-name" list="friend-selector">
-        <datalist id="friend-selector"></datalist>
-        <button type="submit" name="action" onclick="addFriend()">Add</button>
+        <form method="post" action="friends.php">
+            <fieldset>
+                <input type="text" placeholder="Add Friend to List" name="friendRequestname" id="friend-request-name" list="friend-selector">
+                <datalist id="friend-selector">
+                    <?php foreach ($requestOptions as $option) {?>
+                        <option value="<?php echo $option ?>"/>
+                    <?php } ?>
+                </datalist>
+                <button type="submit" name="action" value="add-friend">Add</button>
+            </fieldset>
+        </form>
     </div>
 </body>
 

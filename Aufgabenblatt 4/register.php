@@ -82,7 +82,7 @@ if (isset($_POST["submit"])) {
     <img class="round-image" src="images/user.png" width="90" />
     <h1>Register yourself</h1>
 
-    <form id="register-form" method="post" action="register.php">
+    <form id="register-form" method="post" action="register.php" class="form-design">
         <fieldset>
             <legend>Register</legend>
             <label> <text>Username</text> <input placeholder="Username" type="text" id="username" name="username"/> </label>

@@ -47,36 +47,43 @@ a {
     color: darkred;
 }
 
-form {
+form fieldset{
+    display: flex;
+    flex-direction: row;
+    border: none;
+}
+
+form.form-design {
     text-align: center;
 }
 
-form fieldset {
+form.form-design fieldset {
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid black;
 }
 
-form fieldset label text {
+form.form-design fieldset label text {
     width: 150px;
     text-align: right;
     margin-right: var(--standard-margin);
 }
 
-form fieldset label {
+form.form-design fieldset label {
     width: 340px;
     display: flex;
     flex-direction: row;
     margin-bottom: 5px;
 }
 
-form fieldset label.radio {
+form.form-design fieldset label.radio {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-form fieldset label.radio input {
+form.form-design fieldset label.radio input {
     margin-bottom: 3px;
     margin-right: var(--standard-margin);
 }
@@ -118,12 +125,12 @@ input:focus {
     outline: none;
 }
 
-form .secondary {
+form.form-design .secondary {
     background-color: #CCCCCC;
     color: white;
 }
 
-form .primary {
+form.form-design .primary {
     background-color: #007BFF;
     color: white;
 }

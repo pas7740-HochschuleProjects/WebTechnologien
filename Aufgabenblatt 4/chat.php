@@ -33,8 +33,8 @@ if(empty($_SESSION["user"])){
 
     <a class="blue-link" href="friends.php">
         < Back</a> |
-            <a class="blue-link" href="profile.html">Profile</a> |
-            <a class="red-link" href="friends.html">Remove Friend</a>
+            <a class="blue-link" href="profile.php">Profile</a> |
+            <a class="red-link" href="friends.php">Remove Friend</a>
 
             <hr>
 

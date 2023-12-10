@@ -14,7 +14,7 @@
 <body>
     <h1>Profile of Tom</h1>
 
-    <a href="chat.html">
+    <a href="chat.php">
         < Back to Chat</a> |
             <a class="red-link" ; href="friends.php">Remove Friend</a>
 
