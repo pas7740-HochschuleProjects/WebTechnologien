@@ -33,8 +33,15 @@ if(empty($_SESSION["user"])){
 
     <a class="blue-link" href="friends.php">
         < Back</a> |
-            <a class="blue-link" href="profile.php">Profile</a> |
-            <a class="red-link" href="friends.php">Remove Friend</a>
+            <a class="blue-link" href="profile.php?friend=<?php echo $_GET['friend']; ?>">Profile</a> |
+            <form method="post" action="friends.php" id="remove-friend-form">
+                <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
+                <button type="submit" name="action" class="no-button" value="delete-friend">
+                    <a class="red-link">
+                        Remove Friend
+                    </a>
+                </button>
+            </form>
 
             <hr>
 

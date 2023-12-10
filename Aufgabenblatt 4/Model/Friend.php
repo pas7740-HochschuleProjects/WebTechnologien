@@ -24,6 +24,22 @@ class Friend implements JsonSerializable{
         return $this->username;
     }
 
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function getFirstname(){
+        return $this->firstname;
+    }
+
+    public function getLastname(){
+        return $this->lastname;
+    }
+
+    public function getFavDrink(){
+        return $this->favdrink;
+    }
+
     public function jsonSerialize(){
         return get_object_vars($this);
     }

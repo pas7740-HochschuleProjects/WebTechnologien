@@ -11,28 +11,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 
+<?php
+
+require("start.php");
+
+if(empty($_SESSION["user"])){
+    header("Location: login.php");
+}
+else if(empty($_GET["friend"])){
+    header("Location: friends.php");
+}
+
+$friend = $service->loadUser($_GET["friend"]);
+
+?>
+
 <body>
-    <h1>Profile of Tom</h1>
+    <h1>Profile of <?php echo $_GET["friend"]; ?></h1>
 
-    <a href="chat.php">
+    <a href="chat.php?friend=<?php echo $_GET["friend"]; ?>">
         < Back to Chat</a> |
-            <a class="red-link" ; href="friends.php">Remove Friend</a>
+            <form method="post" action="friends.php" id="remove-friend-form">
+                <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
+                <button type="submit" name="action" class="no-button" value="delete-friend">
+                    <a class="red-link">
+                        Remove Friend
+                    </a>
+                </button>
+            </form>
 
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-                clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Sigmundus creatus est.</p>
+            <p><?php echo $friend->getDescription(); ?></p>
 
             <img src="images/profile.png" width="200" />
-
-            <dl>
-                <dt>Coffee or Tea?</dt>
-                <dd>Tea</dd>
-                <dt>Name</dt>
-                <dd>Thomas</dd>
-            </dl>
+            
+            <div id="profile-infos">
+                <dl>
+                    <?php if($friend->getFavDrink() != NULL) { ?>
+                        <dt>Coffee or Tea?</dt>
+                        <dd><?php echo $friend->getFavDrink(); ?></dd>
+                    <?php } ?>
+                    <?php if($friend->getFirstname() != NULL && $friend->getLastName() != NULL) { ?>
+                        <dt>Name</dt>
+                        <dd><?php echo $friend->getFirstname(); echo " "; echo $friend->getLastname(); ?></dd>
+                    <?php } ?>
+                </dl>
+            </div>
 </body>
 
 </html>

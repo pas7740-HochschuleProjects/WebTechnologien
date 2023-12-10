@@ -4,6 +4,7 @@
     user-select: none;
     background-color: #F8F9FB;
     --standard-margin: 10px;
+    font-size: 17px;
 }
 
 html {
@@ -192,4 +193,27 @@ textarea {
 
 #chatbox li #timestamp{
     margin-right: var(--standard-margin);
+}
+
+button.no-button{
+    padding: 0;
+    background-color: #F8F9FB;
+    font-size: 17px;
+}
+
+form#remove-friend-form{
+    display: inline;
+}
+
+#add-friend-failed{
+    color: red;
+}
+
+#profile-infos{
+    display: flex;
+    justify-content: center;
+}
+
+#profile-infos dl{
+    text-align: left;
 }

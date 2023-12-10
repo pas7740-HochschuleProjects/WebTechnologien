@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <script defer src="./js/main.js"></script>
     <script defer src="./js/request.js"></script>
+    <script defer src="./js/friends.js"></script>
 </head>
 
 <?php
@@ -26,6 +27,8 @@ $friends = $service->loadFriends();
 $friendList = [];
 $requestList = [];
 $requestOptions = [];
+
+$addFriendFailed = false;
 
 // Load friends
 foreach ($friends as $friend){
@@ -53,9 +56,31 @@ foreach($userList as $user){
     }
 }
 
-if (isset($_POST["action"]) == "add-friend") {
-    if(isset($_POST["friendRequestname"])){
-        $service->friendRequest(new Model\Friend($_POST["friendRequestname"]));
+if (isset($_POST["action"])) {
+    if($_POST["action"] == "add-friend"){
+        if(isset($_POST["friendRequestname"])){
+            if($_POST["friendRequestname"] == $_SESSION["user"]->getUsername()){
+                $addFriendFailed = true;
+            }
+            if(!$addFriendFailed){
+                $service->friendRequest(new Model\Friend($_POST["friendRequestname"]));
+            }
+        }
+    }
+    else if($_POST["action"] == "delete-friend"){
+        if(isset($_POST["friendname"])){
+            $service->removeFriend($_POST["friendname"]);
+        }
+    }
+    else if($_POST["action"] == "accept-friend"){
+        if(isset($_POST["friendname"])){
+            $service->friendAccept($_POST["friendname"]);
+        }
+    }
+    else if($_POST["action"] == "reject-friend"){
+        if(isset($_POST["friendname"])){
+            $service->friendDismiss($_POST["friendname"]);
+        }
     }
 }
 
@@ -69,8 +94,8 @@ if (isset($_POST["action"]) == "add-friend") {
     <div class="container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
         <ul>
             <?php foreach ($friendList as $friend) {?>
-            <li class="item">
-                <a href="chat.php?friend=<?php echo $friend->getUsername();?>" class="blue-link">
+            <li class="item" id="<?php echo $friend->getUsername(); ?>">
+                <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="blue-link">
                     <?php
                     if($friend->getStatus() == "accepted"){
                         echo $friend->getUsername();
@@ -81,19 +106,20 @@ if (isset($_POST["action"]) == "add-friend") {
             <?php } ?>
         </ul>
     </div>
-    <hr id="friend-break-line" class="<?php if(count($friends) == 0) echo 'invisible';?>">
+    <hr id="friend-break-line" class="<?php if(count($friendList) == 0) echo 'invisible';?>">
     <h2>New Requests</h2>
     <ol class="container <?php if(count($requestList) == 0) echo 'empty';?>" id="friend-request-container">
         <?php foreach ($requestList as $request) {?>
-            <li class="list-item">
-                <text>Friend request from <b>
-                    <?php
-                    echo $request->getUsername();
-                    ?>
-                </b></text>
-                <button name="action" value="accept-friend">Accept</button>
-                <button name="action" value="reject-friend">Reject</button>
-            </li>
+            <form method="post" action="friends.php">
+                <li class="list-item" id="<?php echo $request->getUsername(); ?>">
+                    <text>Friend request from <b>
+                        <?php echo $request->getUsername(); ?>
+                    </b></text>
+                    <input type="hidden" value="<?php echo $request->getUsername(); ?>" name="friendname"/>
+                    <button type="submit" name="action" value="accept-friend">Accept</button>
+                    <button type="submit" name="action" value="reject-friend">Reject</button>
+                </li>
+            </form>
         <?php } ?>
     </ol>
     <hr>
@@ -110,6 +136,25 @@ if (isset($_POST["action"]) == "add-friend") {
             </fieldset>
         </form>
     </div>
+    <br>
+    <?php if($addFriendFailed) {?>
+        <div id="add-friend-failed">Add Friend failed</div>
+    <?php } ?>
 </body>
+
+<template id="friend-template">
+    <li class="item"><a class="blue-link"></a></li>
+</template>
+
+<template id="friend-request-template">
+    <form method="post" action="friends.php">
+        <li class="list-item">
+            <text>Friend request from <b></b></text>
+            <input type="hidden" name="friendname"/>
+            <button type="submit" name="action" value="accept-friend">Accept</button>
+            <button type="submit" name="action" value="reject-friend">Reject</button>
+        </li>
+    </form>
+</template>
 
 </html>
