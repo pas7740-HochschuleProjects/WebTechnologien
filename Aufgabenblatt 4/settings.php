@@ -62,7 +62,7 @@ if(isset($_POST["action"])){
         <fieldset>
             <legend>Prefered Chat Layout</legend>
             <div class="favlayout">
-                <input type="radio" name="favlayout" value="oneline" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> />Username and message in one line
+                <input type="radio" name="favlayout" value="oneline" checked="true" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> />Username and message in one line
             </div>
             <div class="favlayout">
                 <input type="radio" name="favlayout" value="sepline" <?= $user->getFavlayout() != "sepline" ?: "checked" ?> />Username and message in seperate lines

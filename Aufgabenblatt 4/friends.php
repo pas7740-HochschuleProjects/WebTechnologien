@@ -108,7 +108,7 @@ foreach($unreadMessagesObject as $key => $value) {
                     }
                     ?>
                 </a>
-                <?php if($unreadMessages[$friend->getUsername()] != 0){ ?>
+                <?php if(isset($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] != 0){ ?>
                 <div id="unread">
                     <?php echo $unreadMessages[$friend->getUsername()]; ?>
                 </div>
