@@ -21,6 +21,31 @@ if(isset($_SESSION["user"])){
 
 $login_failed = false;
 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  $username = "";
+  $password = "";
+  if(empty($_POST['username'])){
+    header("Location: login.php");
+  }
+  else{
+    $username = $_POST["username"];
+  }
+
+  if(empty($_POST['password'])){
+    header("Location: login.php");
+  }
+  else{
+    $password = $_POST["password"];
+  }
+
+  if($service->login($username, $password)==true){
+    $_SESSION["user"] = new Model\User($username);
+    header("Location: friends.php");
+  } else {
+    $login_failed = true;
+  }
+}
+
 ?>
 
 <body>
@@ -35,33 +60,10 @@ $login_failed = false;
         <button class="secondary" formaction="register.php">Register</button>
         <button class="primary" type="submit">Login</button>
     </form>
-    <?php 
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-      $username="";
-      $password="";
-
-      if(isset($_POST['username'])){
-        $username = $_POST["username"];
-      }
-
-      if(isset($_POST['password'])){
-        $password = $_POST["password"];
-      }
-
-      if($service->login($username, $password)==true){
-        $_SESSION["user"] = new Model\User($username);
-        header("Location: friends.php");
-      } else {
-        $login_failed = true;
-      }
-    }
-    ?>
     <br />
-    <?php
-    if($login_failed){
-      echo("Login failed!");
-    }
-    ?>
+    <?php if($login_failed){ ?>
+      <div id="login-failed">Login failed</div>
+    <?php } ?>
 </body>
 
 

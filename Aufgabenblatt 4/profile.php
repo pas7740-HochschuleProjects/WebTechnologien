@@ -29,7 +29,7 @@ $friend = $service->loadUser($_GET["friend"]);
 <body>
     <h1>Profile of <?php echo $_GET["friend"]; ?></h1>
 
-    <a href="chat.php?friend=<?php echo $_GET["friend"]; ?>">
+    <a href="chat.php?friend=<?php echo $_GET["friend"]; ?>" class="blue-link">
         < Back to Chat</a> |
             <form method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />

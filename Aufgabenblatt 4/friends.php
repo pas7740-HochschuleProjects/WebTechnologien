@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-    <script defer src="./js/main.js"></script>
     <script defer src="./js/request.js"></script>
     <script defer src="./js/friends.js"></script>
 </head>
@@ -84,6 +83,13 @@ if (isset($_POST["action"])) {
     }
 }
 
+$unreadMessagesObject = $service->getUnread();
+
+$unreadMessages = [];
+
+foreach($unreadMessagesObject as $key => $value) {
+    $unreadMessages[$key] = $value;
+}
 ?>
 
 <body>
@@ -94,7 +100,7 @@ if (isset($_POST["action"])) {
     <div class="container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
         <ul>
             <?php foreach ($friendList as $friend) {?>
-            <li class="item" id="<?php echo $friend->getUsername(); ?>">
+            <li class="item friend-item" id="<?php echo $friend->getUsername(); ?>">
                 <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="blue-link">
                     <?php
                     if($friend->getStatus() == "accepted"){
@@ -102,6 +108,11 @@ if (isset($_POST["action"])) {
                     }
                     ?>
                 </a>
+                <?php if($unreadMessages[$friend->getUsername()] != 0){ ?>
+                <div id="unread">
+                    <?php echo $unreadMessages[$friend->getUsername()]; ?>
+                </div>
+                <?php } ?>
             </li>
             <?php } ?>
         </ul>
@@ -143,7 +154,7 @@ if (isset($_POST["action"])) {
 </body>
 
 <template id="friend-template">
-    <li class="item"><a class="blue-link"></a></li>
+    <li class="item friend-item"><a class="blue-link"></a></li>
 </template>
 
 <template id="friend-request-template">

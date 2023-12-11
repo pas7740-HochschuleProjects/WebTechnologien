@@ -25,7 +25,7 @@ if(empty($user)){
 $user = $service->loadUser($user->getUsername());
 
 //Checks if form has been submitted and save changes
-if(isset($_POST["submit"])){
+if(isset($_POST["action"])){
 
     $user->setFirstname($_POST["firstname"]);
     $user->setLastname($_POST["lastname"]);
@@ -34,6 +34,8 @@ if(isset($_POST["submit"])){
     $user->setFavLayout($_POST["favlayout"]);
 
     $service->saveUser($user);
+
+    header("Location: friends.php");
 }
 ?>
 
@@ -59,12 +61,15 @@ if(isset($_POST["submit"])){
         </fieldset>
         <fieldset>
             <legend>Prefered Chat Layout</legend>
-            <input type="radio" name="favlayout" value="oneline" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> />Username and message in one line
-            <br />
-            <input type="radio" name="favlayout" value="sepline" <?= $user->getFavlayout() != "sepline" ?: "checked" ?> />Username and message in seperate lines
+            <div class="favlayout">
+                <input type="radio" name="favlayout" value="oneline" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> />Username and message in one line
+            </div>
+            <div class="favlayout">
+                <input type="radio" name="favlayout" value="sepline" <?= $user->getFavlayout() != "sepline" ?: "checked" ?> />Username and message in seperate lines
+            </div>
         </fieldset>
         <button formaction="friends.php">Cancel</button>
-        <button name="submit">Save</button>
+        <button type="submit" name="action">Save</button>
     </form>
 </body>
 

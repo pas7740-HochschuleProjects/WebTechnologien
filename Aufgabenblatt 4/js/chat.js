@@ -60,25 +60,26 @@ function renderChat(chatBox, chatMessage, id) {
 
     // Timestamp
     
-    let time = new Date(chatMessage.time);
-    let hours = time.getHours();
-    let minutes = time.getMinutes();
-    let seconds = time.getSeconds();
-    if(hours<10){
-        liElement.children[1].innerText = "0"+hours+":"+minutes+":"+seconds;
-    } else if(minutes<10) {
-        liElement.children[1].innerText = hours+":0"+minutes+":"+seconds;    
-    } else if(seconds<10) {
-        liElement.children[1].innerText = hours+":"+minutes+":0"+seconds;
-    } else if((hours && minutes) <10) { 
-        liElement.children[1].innerText = "0"+hours+":0"+minutes+":"+seconds;
-    } else if ((hours && seconds)<10){
-        liElement.children[1].innerText = "0"+hours+":"+minutes+":0"+seconds;
-    } else if((hours && minutes && seconds)<10){
-        liElement.children[1].innerText = "0"+hours+":0"+minutes+":0"+seconds;
-    } else {
-        liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
-    }
+    let time = new Date(chatMessage.time).toLocaleTimeString();
+    liElement.children[1].innerText = time;
+    // let hours = time.getHours();
+    // let minutes = time.getMinutes();
+    // let seconds = time.getSeconds();
+    // if(hours<10){
+    //     liElement.children[1].innerText = "0"+hours+":"+minutes+":"+seconds;
+    // } else if(minutes<10) {
+    //     liElement.children[1].innerText = hours+":0"+minutes+":"+seconds;    
+    // } else if(seconds<10) {
+    //     liElement.children[1].innerText = hours+":"+minutes+":0"+seconds;
+    // } else if((hours && minutes) <10) { 
+    //     liElement.children[1].innerText = "0"+hours+":0"+minutes+":"+seconds;
+    // } else if ((hours && seconds)<10){
+    //     liElement.children[1].innerText = "0"+hours+":"+minutes+":0"+seconds;
+    // } else if((hours && minutes && seconds)<10){
+    //     liElement.children[1].innerText = "0"+hours+":0"+minutes+":0"+seconds;
+    // } else {
+    //     liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
+    // }
     chatBox.appendChild(liElement);
 }
 
