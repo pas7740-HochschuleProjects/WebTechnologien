@@ -19,7 +19,7 @@ function getChatpartner() {
 }
 
 function loadChat() {
-    phpRequest(REQUEST_TYPE.GET,"ajax_load_messages.php?to=" + friendName, undefined, false).then((response) => {
+    phpRequest(REQUEST_TYPE.GET, "ajax_load_messages.php?to=" + friendName, undefined, false).then((response) => {
         if (response.status == 200) {
             chatData = response.data;
             let arrayLength = response.data.length;
@@ -48,10 +48,10 @@ function loadChat() {
 
 function renderChat(chatBox, chatMessage, id) {
     //Template for the timeStamp
-    
+
     let messageTemplate = document.getElementById("message-template");
     chatBox.appendChild(messageTemplate.content.cloneNode(true));
-    let liElement = chatBox.children[chatBox.children.length-1];
+    let liElement = chatBox.children[chatBox.children.length - 1];
     liElement.id = id;
     liElement.classList.add("item");
 
@@ -59,33 +59,16 @@ function renderChat(chatBox, chatMessage, id) {
     liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
 
     // Timestamp
-    
+
     let time = new Date(chatMessage.time).toLocaleTimeString();
     liElement.children[1].innerText = time;
-    // let hours = time.getHours();
-    // let minutes = time.getMinutes();
-    // let seconds = time.getSeconds();
-    // if(hours<10){
-    //     liElement.children[1].innerText = "0"+hours+":"+minutes+":"+seconds;
-    // } else if(minutes<10) {
-    //     liElement.children[1].innerText = hours+":0"+minutes+":"+seconds;    
-    // } else if(seconds<10) {
-    //     liElement.children[1].innerText = hours+":"+minutes+":0"+seconds;
-    // } else if((hours && minutes) <10) { 
-    //     liElement.children[1].innerText = "0"+hours+":0"+minutes+":"+seconds;
-    // } else if ((hours && seconds)<10){
-    //     liElement.children[1].innerText = "0"+hours+":"+minutes+":0"+seconds;
-    // } else if((hours && minutes && seconds)<10){
-    //     liElement.children[1].innerText = "0"+hours+":0"+minutes+":0"+seconds;
-    // } else {
-    //     liElement.children[1].innerText = hours+":"+minutes+":"+seconds;
-    // }
+
     chatBox.appendChild(liElement);
 }
 
 function sendMessage() {
     let newchatData = document.getElementById("textsubmit").value;
-    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, msg: newchatData}, false);
+    phpRequest(REQUEST_TYPE.POST, "ajax_send_message.php", { to: friendName, msg: newchatData }, false);
     //remove the input text for the submitfeeling
     document.getElementById("textsubmit").value = "";
 }
