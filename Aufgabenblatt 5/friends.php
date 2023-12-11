@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8">
     <title>Friends</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <script defer src="./js/request.js"></script>
     <script defer src="./js/friends.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <?php
@@ -98,9 +99,9 @@ foreach($unreadMessagesObject as $key => $value) {
     <a class="blue-link" href="settings.php">Settings</a>
     <hr>
     <div class="container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
-        <ul>
+        <ul class="list-group">
             <?php foreach ($friendList as $friend) {?>
-            <li class="item friend-item" id="<?php echo $friend->getUsername(); ?>">
+            <li class="list-group-item" id="<?php echo $friend->getUsername(); ?>">
                 <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="blue-link">
                     <?php
                     if($friend->getStatus() == "accepted"){
