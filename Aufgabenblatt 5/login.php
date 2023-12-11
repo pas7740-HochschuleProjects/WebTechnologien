@@ -58,8 +58,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <label> <text>Username</text> <input type="text" placeholder="Username" id="username" name="username"></label>
             <label> <text>Password</text> <input type="password" placeholder="Password" id="password" name="password"></label>
         </fieldset>
-        <button class="secondary" formaction="register.php">Register</button>
-        <button class="primary" type="submit">Login</button>
+        <div class="btn-group" role="group" aria-label="Links Grau Rechts Blau">
+          <button class="btn btn-primary" formaction="register.php">Register</button>
+          <button class="btn btn-primary" type="submit">Login</button>>
+        </div>
     </form>
     <br />
     <?php if($login_failed){ ?>
