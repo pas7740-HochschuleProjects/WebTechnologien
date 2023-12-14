@@ -47,7 +47,7 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="container">
-                <ul colspan="3" id="chatbox">
+                <ul id="chatbox">
                 </ul>
             </div>
 

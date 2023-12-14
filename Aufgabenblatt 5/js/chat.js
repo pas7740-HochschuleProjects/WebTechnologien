@@ -61,7 +61,7 @@ function renderChat(chatBox, chatMessage, id) {
     // Timestamp
 
     let time = new Date(chatMessage.time).toLocaleTimeString();
-    liElement.children[1].innerText = time;
+    liElement.children[3].innerText = time;
 
     chatBox.appendChild(liElement);
 }
