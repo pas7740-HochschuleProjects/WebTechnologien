@@ -22,11 +22,11 @@ session_unset();
 
 <body>
     <img class="round-image" src="images/logout.png" width="90">
+    <div class="container border-dark-subtle mt-10">
     <h1>Logged out...</h1>
     See u!
-    <br>
-    <br>
     <a class="btn btn-primary" href="login.php"> Login again </a>
+    </div>
 </body>
 
 </html>
