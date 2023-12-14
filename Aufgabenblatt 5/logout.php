@@ -20,7 +20,7 @@ session_unset();
 
 ?>
 
-<body class="bg-beige">
+<body>
     <div class="text-center">
      <img class="rounded-circle mt-4 mb-2 w-25 h-25" src="images/logout.png" width="90px">
     </div>
