@@ -44,14 +44,10 @@ if(empty($_SESSION["user"])){
     </div>            
             </form>
 
-            <hr>
-
             <div class="container text-left" >
                   <ul class="col align-items-start" id="chatbox" >
                   </ul>  
             </div>
-
-            <hr>
 
             <div class="input-group mb-3">
                 <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
