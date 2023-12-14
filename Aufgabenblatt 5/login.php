@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </fieldset>
         <div class="btn-group" role="group" aria-label="Links Grau Rechts Blau">
           <button class="btn btn-primary" formaction="register.php">Register</button>
-          <button class="btn btn-primary" type="submit">Login</button>>
+          <button class="btn btn-primary" type="submit">Login</button>
         </div>
     </form>
     <br />
