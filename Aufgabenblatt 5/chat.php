@@ -53,7 +53,7 @@ if(empty($_SESSION["user"])){
 
             <div class="input-group mr-0">
                 <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
-                <span class="input-group-text">
+                <span>
                     <button class="btn btn-primary border-0" onclick="sendMessage()" >Send</button>
                 </span>
             </div>
