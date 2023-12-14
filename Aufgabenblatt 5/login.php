@@ -51,22 +51,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <body>
     <img class="rounded-circle mt-4 mb-4 w-25 h-25 text-center" src="images\chat.png" width="90">
-    <h1>Please sign in</h1>
-    <form method="post" action="login.php" class="form-design">
+    <div class="container border border-dark-subtle mt-4 mb-4 text-center">
+      <h1>Please sign in</h1>
+      <form method="post" action="login.php" class="form-design">
         <fieldset>
             <legend>Login</legend>
             <label> <input type="text" placeholder="Username" id="username" name="username"></label>
             <label> <input type="password" placeholder="Password" id="password" name="password"></label>
         </fieldset>
         <div class="btn-group" role="group" aria-label="Links Grau Rechts Blau">
-          <button class="btn btn-primary" formaction="register.php">Register</button>
+          <button class="btn btn-secondary" formaction="register.php">Register</button>
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
-    </form>
-    <br />
-    <?php if($login_failed){ ?>
+      </form>
+     <br />
+     <?php if($login_failed){ ?>
       <div id="login-failed">Login failed</div>
-    <?php } ?>
+     <?php } ?>
+    </div>
 </body>
 
 
