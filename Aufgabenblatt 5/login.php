@@ -55,8 +55,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     </div>
 
     <div class="container border border-dark-subtle mt-4 mb-4">
-      <h1 class="text-center">Please sign in</h1>
-      <form method="post" action="login.php" class="text-center">
+      <div class="text-center">
+       <h1 class="text-center">Please sign in</h1>
+       <form method="post" action="login.php" class="text-center">
         <div class="form-floating mb-2 w-75 col-md">
             <label class="text-center"> <input type="text" placeholder="Username" id="username" name="username"></label>
         </div>
@@ -70,7 +71,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
 
-      </form>
+       </form>
+      </div>
      <br />
      <?php if($login_failed){ ?>
       <div id="login-failed">Login failed</div>
