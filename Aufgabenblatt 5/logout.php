@@ -26,7 +26,7 @@ session_unset();
     See u!
     <br>
     <br>
-    <button class="btn btn-primary" href="login.php"> Login again </button>
+    <a class="btn btn-primary" href="login.php"> Login again </a>
 </body>
 
 </html>
