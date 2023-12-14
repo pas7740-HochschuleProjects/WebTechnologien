@@ -45,9 +45,10 @@ if(empty($_SESSION["user"])){
                         Remove Friend
                     </a>
                 </button>
+                </form>
             </a>
     </div>            
-            </form>
+               
 
             <div class="container border border-dark mb-2 mt-2" >
                   <ul class="col align-items-start" id="chatbox" >
