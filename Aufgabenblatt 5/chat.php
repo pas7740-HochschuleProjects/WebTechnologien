@@ -37,8 +37,7 @@ if(empty($_SESSION["user"])){
         <a class="btn btn-secondary" href="profile.php?friend=<?php echo $_GET['friend']; ?>">
         Profile
         </a> 
-            <a class="btn btn-secondary bg-danger border-0">
-                <form method="post" action="friends.php" id="remove-friend-form">
+                <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
                 <button type="submit" name="action"  value="delete-friend" id="remove-friend-button">
                     <a class="red-link">
@@ -46,7 +45,6 @@ if(empty($_SESSION["user"])){
                     </a>
                 </button>
                 </form>
-            </a>
     </div>            
                
 
