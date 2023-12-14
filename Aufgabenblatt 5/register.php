@@ -94,7 +94,7 @@ if (isset($_POST["submit"])) {
                 <label class="text-center"><input type="password" placeholder="Password" id="password" name="password" /></label>
             </div>
             <div class="form-floating text-center w-100">
-                <label class="text-center"><input type="password" placeholder="Confirm Password" id="confirm" name="confirm" /></label>
+                <label class="text-center" ><input type="password" placeholder="Confirm Password" id="confirm" name="confirm" /></label>
             </div>
             <div class="btn-group text-center mt-4 mb-3 w-100" role="group" aria-label="Links Grau Rechts Blau">
                 <button class="btn btn-secondary" formaction="login.php">Cancel</button>

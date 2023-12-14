@@ -31,18 +31,18 @@ $friend = $service->loadUser($_GET["friend"]);
     <div class="container border border-dark-subtle mt-3 mb-3w-75 " style="background-color: #f5f5f5;">
         <h1 class="text-center mt-3">Profile of <?php echo $_GET["friend"]; ?></h1>
 
-        <hr />
+        <hr>
 
         <div class="btn-group w-50" role="group">
 
-            <button class="btn btn-secondary border-0 mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>">< back</button>
+            <a class="btn btn-secondary border-0 mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>"> < back</a>
 
             <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
                 <button class="btn btn-secondary bg-danger border-0 mt-0 mb-0" type="submit" name="action" value="delete-friend" id="remove-friend-button"> Remove Friend </button>
             </form>
-
         </div>
+
         <div class="mt-3 mb-3">
             <img src="images/profile.png" width="200" />
         </div>
