@@ -59,11 +59,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <div class="text-center"> 
        <form method="post" action="login.php" class="text-center">
         <div class="text-center form-floating mb-2 w-75">
-            <label class="text-center"> <input type="text" placeholder="Username" id="username" name="username"></label>
+            <label > <input class="text-center" type="text" placeholder="Username" id="username" name="username"></label>
         </div>
 
         <div class="text-center form-floating w-75">
-            <label class="text-center"> <input type="password" placeholder="Password" id="password" name="password"></label>
+            <label> <input class="text-center" type="password" placeholder="Password" id="password" name="password"></label>
         </div>  
 
         <div class="btn-group text-center w-75" role="group" aria-label="Links Grau Rechts Blau">
