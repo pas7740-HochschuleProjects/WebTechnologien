@@ -31,10 +31,10 @@ if(empty($_SESSION["user"])){
 <body class="container">
     <h1 id="heading"></h1>
     <div class="btn-group" role="group">
-      <a class="btn btn-secondary"href="friends.php">
+      <a class="btn btn-secondary mt-0 mb-0"href="friends.php">
       < Back
       </a> 
-        <a class="btn btn-secondary" href="profile.php?friend=<?php echo $_GET['friend']; ?>">
+        <a class="btn btn-secondary mt-0 mb-0" href="profile.php?friend=<?php echo $_GET['friend']; ?>">
         Profile
         </a> 
                 <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
