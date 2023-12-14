@@ -22,7 +22,7 @@ session_unset();
 
 <body>
     <div class="text-center">
-     <img class="rounded-circle" src="images/logout.png" width="90">
+     <img class="rounded-circle mt-4 w-75 h-75" src="images/logout.png" width="90px">
     </div>
 
     <div class="container border border-dark-subtle mt-4 text-center w-50" >
