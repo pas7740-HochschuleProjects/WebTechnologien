@@ -31,7 +31,7 @@ if(empty($_SESSION["user"])){
 <body>
     <h1 id="heading"></h1>
 
-    <a class="blue-link" href="friends.php">
+    <a class="btn-group" href="friends.php">
         < Back</a> |
             <a class="blue-link" href="profile.php?friend=<?php echo $_GET['friend']; ?>">Profile</a> |
             <form method="post" action="friends.php" id="remove-friend-form">
