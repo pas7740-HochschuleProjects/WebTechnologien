@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <label class="text-center"> <input type="password" placeholder="Password" id="password" name="password"></label>
         </div>  
 
-        <div class="btn-group w-75" role="group" aria-label="Links Grau Rechts Blau">
+        <div class="btn-group text-center w-75" role="group" aria-label="Links Grau Rechts Blau">
           <button class="btn btn-secondary" formaction="register.php">Register</button>
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
