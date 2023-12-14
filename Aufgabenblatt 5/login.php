@@ -50,13 +50,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 
 <body>
-    <img class="round-image" src="images\chat.png" width="90">
+    <img class="rounded-circle" src="images\chat.png" width="90">
     <h1>Please sign in</h1>
     <form method="post" action="login.php" class="form-design">
         <fieldset>
             <legend>Login</legend>
-            <label> <text>Username</text> <input type="text" placeholder="Username" id="username" name="username"></label>
-            <label> <text>Password</text> <input type="password" placeholder="Password" id="password" name="password"></label>
+            <label> <input type="text" placeholder="Username" id="username" name="username"></label>
+            <label> <input type="password" placeholder="Password" id="password" name="password"></label>
         </fieldset>
         <div class="btn-group" role="group" aria-label="Links Grau Rechts Blau">
           <button class="btn btn-primary" formaction="register.php">Register</button>
