@@ -44,7 +44,7 @@ if(empty($_SESSION["user"])){
     </div>            
             </form>
 
-            <div class="container text-left" >
+            <div class="container border-dark" >
                   <ul class="col align-items-start" id="chatbox" >
                   </ul>  
             </div>
