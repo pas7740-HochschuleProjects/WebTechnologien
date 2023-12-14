@@ -25,7 +25,7 @@ session_unset();
      <img class="rounded-circle" src="images/logout.png" width="90">
     </div>
 
-    <div class="container border border-dark-subtle mt-10 text-center">
+    <div class="container border border-dark-subtle mt-4 text-center">
      <h1>Logged out...</h1>
      See u!
      <br>
