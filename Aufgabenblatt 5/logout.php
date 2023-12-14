@@ -27,10 +27,9 @@ session_unset();
 
     <div class="container border border-dark-subtle mt-4 text-center w-50" >
      <h1>Logged out...</h1>
-     <br>
      See u!
      <br>
-     <a class="btn btn-secondary" href="login.php"> Login again </a>
+     <a class="btn btn-secondary mt-2" href="login.php"> Login again </a>
     </div>
 </body>
 
