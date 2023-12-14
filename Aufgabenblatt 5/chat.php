@@ -47,7 +47,7 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="container">
-                <ul id="chatbox">
+                <ul colspan="3" id="chatbox">
                 </ul>
             </div>
 
@@ -55,7 +55,7 @@ if(empty($_SESSION["user"])){
 
             <div class="input-group mb-3">
                 <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
-                <button class="btn btn-outline-secondary" onclick="sendMessage()" >Send</button>
+                <button class="btn btn-primary" onclick="sendMessage()" >Send</button>
             </div>
 </body>
 
