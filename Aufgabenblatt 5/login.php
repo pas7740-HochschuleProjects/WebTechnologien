@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 
 <body>
-    <img class="rounded-circle" src="images\chat.png" width="90">
+    <img class="rounded-circle mt-4 mb-4 w-25 h-25 text-center" src="images\chat.png" width="90">
     <h1>Please sign in</h1>
     <form method="post" action="login.php" class="form-design">
         <fieldset>
