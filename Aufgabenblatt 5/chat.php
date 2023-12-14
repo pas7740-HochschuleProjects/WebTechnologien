@@ -28,7 +28,7 @@ if(empty($_SESSION["user"])){
 
 ?>
 
-<body>
+<body class="container">
     <h1 id="heading"></h1>
     <div class="btn-group" role="group">
      <a class="btn btn-secondary"href="friends.php">
