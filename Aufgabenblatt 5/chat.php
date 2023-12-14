@@ -40,9 +40,7 @@ if(empty($_SESSION["user"])){
                 <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
                 <button type="submit" name="action"  value="delete-friend" id="remove-friend-button">
-                    <a class="red-link">
-                        Remove Friend
-                    </a>
+                Remove Friend
                 </button>
                 </form>
     </div>            
