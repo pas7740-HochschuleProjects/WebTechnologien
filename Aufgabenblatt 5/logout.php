@@ -21,8 +21,8 @@ session_unset();
 ?>
 
 <body>
-    <div class="position-absolute">
-     <img class="position-absolute top-50 start-50 translate-middle" src="images/logout.png" width="90">
+    <div>
+     <img class="rounded-circle" src="images/logout.png" width="90">
     </div>
 
     <div class="container border-dark-subtle mt-10">
