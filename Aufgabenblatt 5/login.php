@@ -58,12 +58,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
        <h2 class="text-center">Please sign in</h2>
       <div class="text-center row-2"> 
        <form method="post" action="login.php" class="text-center row-2">
-        <div class="text-center form-floating mt-2 mb-2 w-75">
-            <input class="w-100" type="text" placeholder="Username" id="username" name="username">
+        <div class="text-center form-floating mt-2 mb-2 w-100">
+            <input class="w-75" type="text" placeholder="Username" id="username" name="username">
         </div>
 
-        <div class="text-center form-floating mt-2 mb-2 w-75">
-            <input class="w-100" type="password" placeholder="Password" id="password" name="password">
+        <div class="text-center form-floating mt-2 mb-2 w-100">
+            <input class="w-75" type="password" placeholder="Password" id="password" name="password">
         </div>  
 
         <div class="btn-group text-center w-75" role="group" aria-label="Links Grau Rechts Blau">
