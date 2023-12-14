@@ -56,7 +56,7 @@ function renderChat(chatBox, chatMessage, id) {
 
     //create liElement with chatmessage
     liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
-
+    liElement.classList.add("d-flex justify-content-between")
     // Timestamp
 
     let time = new Date(chatMessage.time).toLocaleTimeString();
