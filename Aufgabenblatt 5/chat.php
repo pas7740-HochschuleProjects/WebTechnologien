@@ -13,13 +13,7 @@
     <script defer src="./js/request.js"></script>
     <script defer src="./js/chat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <style>
-        #chatbox li {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-        }
-    </style>
+
 </head>
 
 <?php
@@ -53,7 +47,7 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="d-flex justify-content-between" class="container text-left" >
-                  <ul class="col align-items-start" id="chatbox">
+                  <ul class="col align-items-start" id="chatbox" >
                   </ul>  
             </div>
 
@@ -66,7 +60,7 @@ if(empty($_SESSION["user"])){
 </body>
 
 <template id="message-template">
-    <li class="chatnachricht"><text></text><text id="timestamp"></text></li>
+    <li class="chatnachricht"><text></text class="d-flex justify-content-between"><text></text></li>
 </template>
 
 </html>
