@@ -21,11 +21,11 @@ session_unset();
 ?>
 
 <body>
-    <div class="position-relativ">
-     <img class="rounded-circle position-absolute top-50 start-50 translate-middle" src="images/logout.png" width="90">
+    <div class="">
+     <img class="rounded-circle" src="images/logout.png" width="90">
     </div>
 
-    <div class="container border-dark-subtle mt-10">
+    <div class="container border border-dark-subtle mt-10">
      <h1>Logged out...</h1>
      See u!
      <br>
