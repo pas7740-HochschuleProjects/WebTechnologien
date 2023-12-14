@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <label> <input type="text" placeholder="Username" id="username" name="username"></label>
             <label> <input type="password" placeholder="Password" id="password" name="password"></label>
         </fieldset>
-        <div class="btn-group" role="group" aria-label="Links Grau Rechts Blau">
+        <div class="btn-group w-75" role="group" aria-label="Links Grau Rechts Blau">
           <button class="btn btn-secondary" formaction="register.php">Register</button>
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
