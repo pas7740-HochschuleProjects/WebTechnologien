@@ -21,12 +21,15 @@ session_unset();
 ?>
 
 <body>
-    <img class="object-fit-contain border rounded" src="images/logout.png" width="90">
+    <div class="position-relative">
+     <img class="position-absolute top-50 start-50 translate-middle" src="images/logout.png" width="90">
+    </div>
+
     <div class="container border-dark-subtle mt-10">
-    <h1>Logged out...</h1>
-    See u!
-    <br>
-    <a class="btn btn-primary" href="login.php"> Login again </a>
+     <h1>Logged out...</h1>
+     See u!
+     <br>
+     <a class="btn btn-primary" href="login.php"> Login again </a>
     </div>
 </body>
 
