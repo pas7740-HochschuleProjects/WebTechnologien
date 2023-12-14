@@ -55,7 +55,7 @@ if(empty($_SESSION["user"])){
 
             <div class="input-group mb-3">
                 <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
-                <button class="btn btn-outline-primary" onclick="sendMessage()" >Send</button>
+                <button class="btn btn-outline-secondary" onclick="sendMessage()" >Send</button>
             </div>
 </body>
 
