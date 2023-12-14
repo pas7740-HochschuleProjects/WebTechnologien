@@ -53,7 +53,6 @@ function renderChat(chatBox, chatMessage, id) {
     chatBox.appendChild(messageTemplate.content.cloneNode(true));
     let liElement = chatBox.children[chatBox.children.length - 1];
     liElement.id = id;
-    liElement.id.classList.add("position-absolute top-100 start-100 translate-middle");
 
     //create liElement with chatmessage
     liElement.children[0].innerText = chatMessage.from + ": " + chatMessage.msg;
@@ -62,7 +61,7 @@ function renderChat(chatBox, chatMessage, id) {
 
     let time = new Date(chatMessage.time).toLocaleTimeString();
     liElement.children[1].innerText = time;
-    liElement.children[1].classList.add("position-absolute top-100 start-100 translate-middle");
+
     chatBox.appendChild(liElement);
 }
 
