@@ -60,7 +60,7 @@ if(empty($_SESSION["user"])){
 </body>
 
 <template id="message-template">
-    <li class="chatnachricht"><text></text class="d-flex justify-content-between"><text></text></li>
+    <li class="d-flex justify-content-between"><text></text><text></text></li>
 </template>
 
 </html>
