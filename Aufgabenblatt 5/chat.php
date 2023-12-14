@@ -30,10 +30,10 @@ if(empty($_SESSION["user"])){
 
 <body>
     <h1 id="heading"></h1>
-
-    <a class="btn-group" href="friends.php">
-        < Back</a> |
-            <a class="blue-link" href="profile.php?friend=<?php echo $_GET['friend']; ?>">Profile</a> |
+    <div class="btn-group" role="group">
+     <a class="btn btn-primary"href="friends.php">
+     < Back</a> |
+     <a class="blue-link" href="profile.php?friend=<?php echo $_GET['friend']; ?>">Profile</a> |
             <form method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
                 <button type="submit" name="action" class="no-button" value="delete-friend">
@@ -41,6 +41,7 @@ if(empty($_SESSION["user"])){
                         Remove Friend
                     </a>
                 </button>
+    </div>            
             </form>
 
             <hr>
