@@ -28,35 +28,43 @@ $friend = $service->loadUser($_GET["friend"]);
 ?>
 
 <body>
-    <h1>Profile of <?php echo $_GET["friend"]; ?></h1>
+    <div class="container border border-dark-subtle mt-3 mb-3w-75 " style="background-color: #f5f5f5;">
+        <h1 class="text-center mt-3">Profile of <?php echo $_GET["friend"]; ?></h1>
 
-    <a href="chat.php?friend=<?php echo $_GET["friend"]; ?>" class="blue-link">
-        < Back to Chat</a> |
-            <form method="post" action="friends.php" id="remove-friend-form">
+        <hr />
+
+        <div class="btn-group w-50" role="group">
+
+            <button class="btn btn-secondary border-0 mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>">< back</button>
+
+            <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
                 <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
-                <button type="submit" name="action" class="no-button" value="delete-friend">
-                    <a class="red-link">
-                        Remove Friend
-                    </a>
-                </button>
+                <button class="btn btn-secondary bg-danger border-0 mt-0 mb-0" type="submit" name="action" value="delete-friend" id="remove-friend-button"> Remove Friend </button>
             </form>
+
+        </div>
+        <div class="mt-3 mb-3">
+            <img src="images/profile.png" width="200" />
+        </div>
+
+        <div class="container border border-dark-subtle  mb-3 w-100" style="background-color: white;">
 
             <p><?php echo $friend->getDescription(); ?></p>
 
-            <img src="images/profile.png" width="200" />
-            
             <div id="profile-infos">
                 <dl>
                     <?php if($friend->getFavDrink() != NULL) { ?>
-                        <dt>Coffee or Tea?</dt>
-                        <dd><?php echo $friend->getFavDrink(); ?></dd>
+                    <dt>Coffee or Tea?</dt>
+                    <dd><?php echo $friend->getFavDrink(); ?></dd>
                     <?php } ?>
                     <?php if($friend->getFirstname() != NULL && $friend->getLastName() != NULL) { ?>
-                        <dt>Name</dt>
-                        <dd><?php echo $friend->getFirstname(); echo " "; echo $friend->getLastname(); ?></dd>
+                    <dt>Name</dt>
+                    <dd><?php echo $friend->getFirstname(); echo " "; echo $friend->getLastname(); ?></dd>
                     <?php } ?>
                 </dl>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>

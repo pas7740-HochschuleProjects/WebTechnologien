@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Register</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script defer src="./js/request.js"></script>
     <script defer src="./js/register.js"></script>
@@ -79,24 +79,28 @@ if (isset($_POST["submit"])) {
 ?>
 
 <body>
-    <img class="round-image" src="images/user.png" width="90" />
-    <h1>Register yourself</h1>
+    <div class="text-center" style="">
+        <img src="images/user.png" class="img-fluid rounded-circle mt-4 mb-4 w-25 h-25"/>
+    </div>
 
-    <form id="register-form" method="post" action="register.php" class="form-design">
-        <fieldset>
-            <legend>Register</legend>
-            <label> <text>Username</text> <input placeholder="Username" type="text" id="username" name="username"/> </label>
-            <div class="input-error" id="UserError"></div>
-            <label> <text>Password</text> <input placeholder="Password" type="password" id="password" name="password"/> </label>
-            <div class="input-error" id="PasswordError"></div>
-            <label> <text>Confirm Password</text> <input placeholder="Confirm Password" type="password" id="confirm" name="confirm"/> </label>
-            <div class="input-error" id="ConfirmError"></div>
-        </fieldset>
+    <div class="container border border-dark-subtle mt-3 mb-4 w-75" style="background-color: #f5f5f5;">
+        <h1 class="text-center mt-2">Register yourself</h1>
+        <form id="register-form" method="post" action="register.php" class="text-center">
 
-        <button class="secondary" formaction="login.php">Cancel</button>
-        <button name="submit" type="submit" id="submitBTN" disabled="disabled" class="primary" >Create Account</button>
-    </form>
-
+            <div class="form-floating text-center mt-4 mb-2 w-100">
+                <label class="text-center"><input type="text" placeholder="Username" id="username" name="username" /></label>
+            </div>
+            <div class="form-floating text-center mb-2 w-100">
+                <label class="text-center"><input type="password" placeholder="Password" id="password" name="password" /></label>
+            </div>
+            <div class="form-floating text-center w-100">
+                <label class="text-center"><input type="password" placeholder="Confirm Password" id="confirm" name="confirm" /></label>
+            </div>
+            <div class="btn-group text-center mt-4 mb-3 w-100" role="group" aria-label="Links Grau Rechts Blau">
+                <button class="btn btn-secondary" formaction="login.php">Cancel</button>
+                <button name="submit" type="submit" id="submitBTN" disabled="disabled" class="btn btn-primary">Create Account</button>
+            </div>
+    </div>
 </body>
 
 </html>
