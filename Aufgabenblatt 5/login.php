@@ -50,14 +50,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 
 <body>
-    <div class="text-center col-2">
+    <div class="text-center row-2">
       <img class="rounded-circle mt-4 mb-4 w-25 h-25" src="images\chat.png" width="90">
     </div>
 
-    <div class="container border border-dark-subtle mt-4 mb-4 col-2">
+    <div class="container border border-dark-subtle mt-4 mb-4 row-2">
        <h1 class="text-center">Please sign in</h1>
-      <div class="text-center col-2"> 
-       <form method="post" action="login.php" class="text-center col-2">
+      <div class="text-center row-2"> 
+       <form method="post" action="login.php" class="text-center row-2">
         <div class="text-center form-floating mt-2 mb-2">
             <input type="text" placeholder="Username" id="username" name="username">
         </div>
