@@ -57,11 +57,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <div class="container border border-dark-subtle mt-4 mb-4">
       <h1 class="text-center">Please sign in</h1>
       <form method="post" action="login.php" class="text-center">
-        <div class="form-floating text-center mb-2 w-75">
+        <div class="form-floating mb-2 w-75">
             <label class="text-center"> <input type="text" placeholder="Username" id="username" name="username"></label>
         </div>
 
-        <div class="form-floating text-center w-75">
+        <div class="form-floating w-75">
             <label class="text-center"> <input type="password" placeholder="Password" id="password" name="password"></label>
         </div>  
 
