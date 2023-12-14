@@ -50,19 +50,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 ?>
 
 <body>
-    <div class="text-center">
+    <div class="text-center row-2">
       <img class="rounded-circle mt-4 mb-4 w-25 h-25" src="images\chat.png" width="90">
     </div>
 
-    <div class="container border border-dark-subtle mt-4 mb-4">
-      <h1 class="text-center">Please sign in</h1>
-      <form method="post" action="login.php" class="text-center">
-        <div class="form-floating text-center mb-2 w-75">
-            <label class="text-center"> <input type="text" placeholder="Username" id="username" name="username"></label>
+    <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-75">
+       <h2 class="text-center">Please sign in</h2>
+      <div class="text-center row-2"> 
+       <form method="post" action="login.php" class="text-center row-2">
+        <div class="text-center form-floating mt-2 mb-2 w-100 h-100">
+            <input class="w-75 h-100" type="text" placeholder="Username" id="username" name="username">
         </div>
 
-        <div class="form-floating text-center w-75">
-            <label class="text-center"> <input type="password" placeholder="Password" id="password" name="password"></label>
+        <div class="text-center form-floating mt-2 mb-2 w-100 h-100">
+            <input class="w-75 h-100" type="password" placeholder="Password" id="password" name="password">
         </div>  
 
         <div class="btn-group text-center w-75" role="group" aria-label="Links Grau Rechts Blau">
@@ -70,7 +71,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
           <button class="btn btn-primary" type="submit">Login</button>
         </div>
 
-      </form>
+       </form>
+      </div>
      <br />
      <?php if($login_failed){ ?>
       <div id="login-failed">Login failed</div>
