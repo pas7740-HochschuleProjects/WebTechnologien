@@ -47,8 +47,10 @@ if(empty($_SESSION["user"])){
             <hr>
 
             <div class="container text-left" class="position-relative">
-                <ul class="col align-items-start" id="chatbox">
-                </ul>
+                <div class="d-flex justify-content-between">
+                  <ul class="col align-items-start" id="chatbox">
+                  </ul>
+                </div>  
             </div>
 
             <hr>
