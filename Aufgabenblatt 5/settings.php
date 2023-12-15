@@ -41,37 +41,62 @@ if(isset($_POST["action"])){
 ?>
 
 <body>
-    <h1>Profile Settings</h1>
+    
+        
+    <div class="container border border-dark-subtle mt-4 mb-4 w-75" style="background-color: #f5f5f5;">
 
-    <form method="post" action="settings.php" class="form-design">
-        <fieldset>
-            <legend>Base Data</legend>
-            <label> <text>First Name</text> <input type="text" value="<?= $user->getFirstname() ?>"  placeholder="Your name" name="firstname" /></label>
-            <label> <text>Last Name</text> <input type="text" value="<?= $user->getLastname() ?>" placeholder="Your surname" name="lastname" /></label>
-            <label><text>Coffee or Tea?</text>
-                <select name="favdrink">
+        <h1 class="text-center mt-3">Profile Settings</h1>
+        <hr />
+
+        <form method="post" action="settings.php" class="form-design">
+            <div class="mb-3">
+                <h5 class="mb-3">Base Data</h5>
+                <input type="text" class="form-control" value="<?= $user->getFirstname() ?>" placeholder="Your name" name="firstname" />
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" value="<?= $user->getLastname() ?>" placeholder="Your surname" name="lastname" />
+            </div>
+
+            <div class="mb-4">
+                
+                <h5 class="mb-3">Coffee or Tea?</h5>
+
+                <select name="favdrink" class="form-select w-100">
                     <option value="Coffee" <?= $user->getFavdrink() != "Coffee" ?: "selected" ?>>Coffee</option>
                     <option value="Tea" <?= $user->getFavdrink() != "Tea" ?: "selected" ?>>Tea</option>
                     <option value="Neither" <?= $user->getFavdrink() != "Neither" ?: "selected" ?>>Neither</option>
                 </select>
-            </label>
-        </fieldset>
-        <fieldset>
-            <legend>Tell Something About You</legend>
-            <textarea name="description" cols="70" rows="6" placeholder="Leave a comment here"><?= $user->getDescription() ?></textarea>
-        </fieldset>
-        <fieldset>
-            <legend>Prefered Chat Layout</legend>
-            <div class="favlayout">
-                <input type="radio" name="favlayout" value="oneline" checked="true" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> />Username and message in one line
             </div>
-            <div class="favlayout">
-                <input type="radio" name="favlayout" value="sepline" <?= $user->getFavlayout() != "sepline" ?: "checked" ?> />Username and message in seperate lines
+
+            <hr />
+
+            <div class="mb-3">
+                <h5 class="mb-3">Tell Something About You</h5>
+                <textarea class="form-control rounded-0" name="description" cols="70" rows="7" placeholder="Leave a comment here"><?= $user->getDescription() ?></textarea>
             </div>
-        </fieldset>
-        <button formaction="friends.php">Cancel</button>
-        <button type="submit" name="action">Save</button>
-    </form>
+
+            <div class="mb-3">
+                <h5 class="mb-3">Prefered Chat Layout</h5>
+
+                <div class="favlayout">
+                    <input type="radio" name="favlayout" value="oneline" checked="true" <?= $user->getFavlayout() != "oneline" ?: "checked" ?> /> Username and message in one line
+                </div>
+                <div class="favlayout">
+                    <input type="radio" name="favlayout" value="sepline" <?= $user->getFavlayout() != "sepline" ?: "checked" ?> /> Username and message in seperate lines
+                </div>
+
+            </div>
+
+            <hr />
+
+            <div class="btn-group text-center mt-3 mb-4 w-100" role="group" aria-label="Links Grau Rechts Blau">
+                <button class=" btn btn-secondary" formaction="friends.php">Cancel</button>
+                <button class=" btn btn-primary" type="submit" name="action">Save</button>
+            </div>
+
+        </form>
+    </div>
+    
 </body>
 
 </html>
