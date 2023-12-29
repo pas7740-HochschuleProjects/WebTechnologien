@@ -4,11 +4,6 @@ let friendName = getChatpartner();
 let überSchrift = document.getElementById("heading");
 überSchrift.innerText = "Chat with " + friendName;
 
-const chatModal = document.getElementById('chatModal');
-const openModal = document.getElementById('openModal');
-chatModal.addEventListener('shown.bs.modal', ()=>{
-    openModal.focus()
-})
 
 loadChat();
 

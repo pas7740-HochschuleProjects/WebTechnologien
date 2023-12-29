@@ -40,7 +40,7 @@ if(empty($_SESSION["user"])){
       Profile
       </a> 
       <a class="btn btn-danger border-0 mt-0 mb-0">
-        <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="chatModal" id="openModal">
+        <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="chatModal">
         Remove Friend
         </button>
 
