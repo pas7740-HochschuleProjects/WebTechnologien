@@ -49,26 +49,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 ?>
 
-<body class="h-100">
+<body>
     
-    <div class="text-center row-2">
+    <div class="text-center">
       <img class="rounded-circle img-fluid mt-4 mb-4 w-25 h-25" src="images\chat.png" width="90">
     </div>
 
     <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-50 h-50">
        <p class="text-center mt-4 h5">Please sign in</p> 
-     <div class="text-center"> 
+     <div class="text-center mt-2"> 
        <form method="post" action="login.php" class="text-center">
-            
-          
-        
-
+      
         <div class="text-center text-wrap mt-2 mb-2" >
-          <div class="text-center text-wrap mb-2 mt-1">
-          <input class="w-75" required type="text" placeholder="Username" id="username" name="username">
-          <input class="w-75" required type="password" placeholder="Password" id="password" name="password">
+          <div class="w-75 text-center ml-4">
+           <div class="text-center text-wrap mb-2 mt-1 ml-4 form-floating">
+            <input class="mt-2 mb-1 ml-3 form-control" required type="text" placeholder="Username" id="username" name="username">
+           </div>
+           <div class="text-center text-wrap mb-2 ml-4 form-floating">
+            <input class="mt-1 mb-2 ml-3 form-control" required type="password" placeholder="Password" id="password" name="password">
+           </div>
           </div>
-           <div class="text-center btn-group w-75" role="group">
+           <div class="text-center btn-group mt-2 w-75" role="group">
             <button class="btn btn-secondary" formaction="register.php" formnovalidate>Register</button>
             <button class="btn btn-primary" type="submit">Login</button>
            </div>
@@ -76,6 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
        </form>
       </div>
+
      <br />
      <?php if($login_failed){ ?>
       <div id="login-failed">Login failed</div>
