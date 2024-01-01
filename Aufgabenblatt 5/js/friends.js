@@ -1,15 +1,17 @@
-let friendList = [], requestList = [];
+let friendList = [], requestList = [], unreadList = {};
 
 window.setInterval(()=>loadFriends(), 1000);
 
 async function loadFriends(){
     await phpRequest(REQUEST_TYPE.GET,"ajax_load_friends.php", undefined, false).then((response)=>{
         if(response.status == 200){
-            friendList = [], requestList = [];
-
+            friendList = [], requestList = [], unreadList = {};
             for(let user of response.data){
                 if(user.status == "accepted"){
                     friendList.push(user.username);
+                    if(user.unread > 0){
+                        unreadList[user.username] = user.unread;
+                    }
                 }
                 else{
                     requestList.push(user.username);
@@ -38,8 +40,8 @@ function updateFriendList(){
         let liTemplate = document.getElementById("friend-template");
 
         // Style
-        friendContainer.classList.remove("empty");
-        friendBreakLine.classList.remove("invisible");
+        friendContainer.classList.remove("d-none");
+        friendBreakLine.classList.remove("d-none");
 
         // Li
         for(let friend of friendList){
@@ -54,14 +56,19 @@ function updateFriendList(){
                 ulElement.appendChild(liTemplate.content.cloneNode(true));
                 let liElement = ulElement.children[ulElement.children.length-1];
                 liElement.id = friend;
-                liElement.children[0].innerHTML = friend;
-                liElement.children[0].setAttribute("href", "chat.php?friend=" + friend);
+                liElement.getElementById("name").innerHTML = friend;
+                liElement.setAttribute("href", "chat.php?friend=" + friend);
+                if(unreadList[friend] != undefined){
+                    let span = liElement.getElementsByTagName("span")[0];
+                    span.className.remove("d-none");
+                    span.innerHTML = unreadList[friend];
+                }
             }
         }
     }
     else{
-        friendContainer.classList.add("empty");
-        friendBreakLine.classList.add("invisible");
+        friendContainer.classList.add("d-none");
+        friendBreakLine.classList.add("d-none");
     }
 }
 

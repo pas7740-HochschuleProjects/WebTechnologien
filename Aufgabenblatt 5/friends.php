@@ -93,43 +93,43 @@ foreach($unreadMessagesObject as $key => $value) {
 }
 ?>
 
-<body>
-    <h1>Friends</h1>
-    <a class="blue-link" href="logout.php">< Logout </a> | 
-    <a class="blue-link" href="settings.php">Settings</a>
-    <hr>
-    <div class="container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
+<body class="container">
+    <h1 class="mt-4">Friends</h1>
+    <div class="btn-group mt-3">
+        <a class="btn btn-secondary" href="logout.php">< Logout </a>
+        <a class="btn btn-secondary" href="settings.php">Settings</a>
+    </div>
+    <hr class="mt-5">
+    <div class="friend-container container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
         <ul class="list-group">
             <?php foreach ($friendList as $friend) {?>
-            <li class="list-group-item" id="<?php echo $friend->getUsername(); ?>">
-                <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="blue-link">
+                <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" id="<?php echo $friend->getUsername(); ?>">
                     <?php
                     if($friend->getStatus() == "accepted"){
                         echo $friend->getUsername();
                     }
                     ?>
+                    <?php if(isset($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] != 0){ ?>
+                        <span class="badge badge-primary badge-pill">
+                            <?php echo $unreadMessages[$friend->getUsername()]; ?>
+                        </span>
+                    <?php } ?>
                 </a>
-                <?php if(isset($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] != 0){ ?>
-                <div id="unread">
-                    <?php echo $unreadMessages[$friend->getUsername()]; ?>
-                </div>
-                <?php } ?>
-            </li>
             <?php } ?>
         </ul>
     </div>
-    <hr id="friend-break-line" class="<?php if(count($friendList) == 0) echo 'invisible';?>">
-    <h2>New Requests</h2>
+    <hr id="friend-break-line" class="<?php if(count($friendList) == 0) echo 'd-none';?>">
+    <h2 class="mb-4">New Requests</h2>
     <ol class="container <?php if(count($requestList) == 0) echo 'empty';?>" id="friend-request-container">
         <?php foreach ($requestList as $request) {?>
             <form method="post" action="friends.php">
-                <li class="list-item" id="<?php echo $request->getUsername(); ?>">
+                <li class="list-group-item list-group-item-action" id="<?php echo $request->getUsername(); ?>">
                     <text>Friend request from <b>
                         <?php echo $request->getUsername(); ?>
                     </b></text>
-                    <input type="hidden" value="<?php echo $request->getUsername(); ?>" name="friendname"/>
+                    <!-- <input type="hidden" value="<?php echo $request->getUsername(); ?>" name="friendname"/>
                     <button type="submit" name="action" value="accept-friend">Accept</button>
-                    <button type="submit" name="action" value="reject-friend">Reject</button>
+                    <button type="submit" name="action" value="reject-friend">Reject</button> -->
                 </li>
             </form>
         <?php } ?>
@@ -138,13 +138,17 @@ foreach($unreadMessagesObject as $key => $value) {
     <div class="input-container">
         <form method="post" action="friends.php">
             <fieldset>
-                <input type="text" placeholder="Add Friend to List" name="friendRequestname" id="friend-request-name" list="friend-selector">
-                <datalist id="friend-selector">
-                    <?php foreach ($requestOptions as $option) {?>
-                        <option value="<?php echo $option ?>"/>
-                    <?php } ?>
-                </datalist>
-                <button type="submit" name="action" value="add-friend">Add</button>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="friendRequestname" placeholder="Add Friend to List" aria-label="Recipient's username" aria-describedby="basic-addon2" list="friend-selector">
+                    <datalist id="friend-selector">
+                        <?php foreach ($requestOptions as $option) {?>
+                            <option value="<?php echo $option ?>"/>
+                        <?php } ?>
+                    </datalist>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" name="action" value="add-friend">Add</button>
+                    </div>
+                </div>
             </fieldset>
         </form>
     </div>
@@ -155,16 +159,21 @@ foreach($unreadMessagesObject as $key => $value) {
 </body>
 
 <template id="friend-template">
-    <li class="item friend-item"><a class="blue-link"></a></li>
+    <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div id="name">
+        </div>
+        <span class="badge badge-primary badge-pill d-none">
+        </span>
+    </a>
 </template>
 
 <template id="friend-request-template">
     <form method="post" action="friends.php">
-        <li class="list-item">
+        <li class="list-group-item list-group-item-action">
             <text>Friend request from <b></b></text>
-            <input type="hidden" name="friendname"/>
+            <!-- <input type="hidden" name="friendname"/>
             <button type="submit" name="action" value="accept-friend">Accept</button>
-            <button type="submit" name="action" value="reject-friend">Reject</button>
+            <button type="submit" name="action" value="reject-friend">Reject</button> -->
         </li>
     </form>
 </template>
