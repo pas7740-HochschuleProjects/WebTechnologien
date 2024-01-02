@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
               <input class="form-control mt-2" required type="password" placeholder="Password" id="password" name="password" />
             </div>
 
-            <div class="text-center btn-group mt-2 w-75" role="group">
+            <div class="container text-center btn-group mt-2 w-75" role="group">
               <button class="btn btn-secondary" formaction="register.php" formnovalidate>Register</button>
               <button class="btn btn-primary" type="submit">Login</button>
             </div>
