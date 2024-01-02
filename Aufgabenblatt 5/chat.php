@@ -46,24 +46,37 @@ if(empty($_SESSION["user"])){
         <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#chatModal">
         Remove Friend
         </button>
+      </a> 
+    </div>            
+     
+            <div class="container border border-dark mb-4 mt-4" >
+                  <ul class="col align-items-start mb-2 mt-2" id="chatbox" >
+                  </ul>  
+            </div>
 
-        <div class="modal fade" id="chatModal" tabindex="-1">
-     <div class="modal-dialog">
+            <div class="input-group">
+                <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
+                <button class="btn btn-primary" onclick="sendMessage()" >Send</button>
+            </div>
+
+            <div class="modal" id="chatModal" tabindex="-1">
+      <div class="modal-dialog">
         <div class="modal-content">
          <div class="modal-header">
-             <h5 class="modal-title fs-5">Remove <?php echo $_GET['friend']; ?> as Friend
+             <h5 class="modal-title fs-5">Remove <?php echo $_GET['friend']; ?> 
+             as Friend
              </h5>
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
              </button>
-            </div>
-         <div class="modal-body">
-         <p>Do you really want to end your friendship?</p>
          </div>
+          <div class="modal-body">
+           <p>Do you really want to end your friendship?</p>
+          </div>
          <div class="modal-footer">
             <button class="btn btn-secondary"data-bs-dismiss="modal">
             Cancel
             </button>
-            <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
+            <form method="post" action="friends.php" id="remove-friend-form">
              <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
              <button class="btn btn-primary" type="submit" name="action"  value="delete-friend" id="remove-friend-button">
              Yes, Please!
@@ -71,23 +84,8 @@ if(empty($_SESSION["user"])){
             </form>
          </div>  
         </div>    
-     </div>  
+      </div>  
      </div> 
-
-      </a> 
-    </div>            
-     
-     
-
-            <div class="container border border-dark mb-4 mt-4" >
-                  <ul class="col align-items-start" id="chatbox" >
-                  </ul>  
-            </div>
-
-            <div class="input-group mt-0">
-                <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
-                <button class="btn btn-primary" onclick="sendMessage()" >Send</button>
-            </div>
 </body>
 
 <template id="message-template">
