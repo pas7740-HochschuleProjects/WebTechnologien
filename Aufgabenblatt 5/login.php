@@ -65,8 +65,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
           <div class="text-center text-wrap mt-2 mb-2" >
             
             <div class="container">
-              <input class="form-control mt-2" required type="text" placeholder="Username" id="username" name="username" />
-              <input class="form-control mt-2" required type="password" placeholder="Password" id="password" name="password" />
+              <div class="form-floating">
+                <input class="form-control mt-2" required type="text" placeholder="Username" id="username" name="username" />
+                <label for="username">Username</label>
+              </div>
+              <div class="form-floating">
+               <input class="form-control mt-2" required type="password" placeholder="Password" id="password" name="password" />
+               <label for="password">Password</label>
+              </div>
             </div>
 
             <div class="container text-center btn-group mt-2" role="group">
