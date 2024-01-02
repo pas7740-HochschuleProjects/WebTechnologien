@@ -56,13 +56,17 @@ function updateFriendList(){
                 ulElement.appendChild(liTemplate.content.cloneNode(true));
                 let liElement = ulElement.children[ulElement.children.length-1];
                 liElement.id = friend;
-                liElement.getElementById("name").innerHTML = friend;
+                liElement.children[0].innerHTML = friend;
                 liElement.setAttribute("href", "chat.php?friend=" + friend);
-                if(unreadList[friend] != undefined){
-                    let span = liElement.getElementsByTagName("span")[0];
-                    span.className.remove("d-none");
-                    span.innerHTML = unreadList[friend];
-                }
+            }
+        }
+
+        for(let child of ulElement.children){
+            // Badges
+            if(unreadList[child.id] != undefined){
+                let span = child.children[1];
+                span.classList.remove("d-none");
+                span.innerHTML = unreadList[child.id];
             }
         }
     }
@@ -74,9 +78,10 @@ function updateFriendList(){
 
 function updateFriendRequestList(){
     let friendRequestContainer = document.getElementById("friend-request-container");
+    let friendRequestList = friendRequestContainer.children[0];
 
-    for(let child of friendRequestContainer.children){
-        if(!requestList.includes(child.children[0].id)){
+    for(let child of friendRequestList.children){
+        if(!requestList.includes(child.id)){
             child.remove();
         }
     }
@@ -85,27 +90,32 @@ function updateFriendRequestList(){
         let liTemplate = document.getElementById("friend-request-template");
 
         // Style
-        friendRequestContainer.classList.remove("empty");
+        friendRequestContainer.classList.remove("d-none");
 
         // Li
         for(let request of requestList){
             let requestFound = false;
-            for(let child of friendRequestContainer.children){
-                if(child.children[0].id == request){
+            for(let child of friendRequestList.children){
+                if(child.id == request){
                     requestFound = true;
                     break;
                 }
             }
             if(!requestFound){
-                friendRequestContainer.appendChild(liTemplate.content.cloneNode(true));
-                let liElement = friendRequestContainer.children[friendRequestContainer.children.length-1].children[0];
+                friendRequestList.appendChild(liTemplate.content.cloneNode(true));
+                let liElement = friendRequestList.children[friendRequestList.children.length-1];
                 liElement.id = request;
-                liElement.children[0].getElementsByTagName("b")[0].innerHTML = request;
-                liElement.children[1].value = request;
+                liElement.children[1].innerHTML = request;
             }
         }
     }
     else{
-        friendRequestContainer.classList.add("empty");
+        friendRequestContainer.classList.add("d-none");
     }
+}
+
+function setModal(request){
+    // Set title
+    document.getElementsByClassName("modal-title")[0].children[1].innerHTML = request.id;
+    document.getElementById("modalRequestFriendname").value = request.id;
 }

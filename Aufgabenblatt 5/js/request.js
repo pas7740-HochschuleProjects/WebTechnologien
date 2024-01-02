@@ -25,7 +25,9 @@ async function phpRequest(requestType, url, body, auth){
     };
     return await fetch(url, (auth) ? tokenHeader : basicHeader)
         .then(async (response) => {
-            let data = await response.json().catch((error)=>{});
+            let data = await response.json().catch((error)=>{
+                console.error("Fetch error: " + error);
+            });
             return {
                 data: data,
                 status: response.status

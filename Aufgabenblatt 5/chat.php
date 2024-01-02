@@ -49,43 +49,42 @@ if(empty($_SESSION["user"])){
       </a> 
     </div>            
      
-            <div class="container border border-dark mb-4 mt-4" >
-                  <ul class="col align-items-start mb-2 mt-2" id="chatbox" >
-                  </ul>  
-            </div>
+    <div class="container border border-dark mb-4 mt-4" >
+        <ul class="col align-items-start mb-2 mt-2" id="chatbox" >
+        </ul>  
+    </div>
 
-            <div class="input-group">
-                <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
-                <button class="btn btn-primary" onclick="sendMessage()" >Send</button>
-            </div>
+    <div class="input-group">
+        <input class="form-control" id="textsubmit" type="text" placeholder="New Message"/>
+        <button class="btn btn-primary" onclick="sendMessage()" >Send</button>
+    </div>
 
-            <div class="modal" id="chatModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-         <div class="modal-header">
-             <h5 class="modal-title fs-5">Remove <?php echo $_GET['friend']; ?> 
-             as Friend
-             </h5>
-             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-             </button>
-         </div>
-          <div class="modal-body">
-           <p>Do you really want to end your friendship?</p>
-          </div>
-         <div class="modal-footer">
-            <button class="btn btn-secondary"data-bs-dismiss="modal">
-            Cancel
-            </button>
-            <form method="post" action="friends.php" id="remove-friend-form">
-             <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
-             <button class="btn btn-primary" type="submit" name="action"  value="delete-friend" id="remove-friend-button">
-             Yes, Please!
-             </button>
-            </form>
-         </div>  
-        </div>    
-      </div>  
-     </div> 
+    <div class="modal" id="chatModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-5">Remove <?php echo $_GET['friend']; ?> 
+                    as Friend
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to end your friendship?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"data-bs-dismiss="modal">
+                    Cancel
+                    </button>
+                    <form method="post" action="friends.php" id="remove-friend-form">
+                        <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
+                        <button class="btn btn-primary" type="submit" name="action"  value="delete-friend" id="remove-friend-button">
+                        Yes, Please!
+                        </button>
+                    </form>
+                </div>  
+            </div>    
+        </div>  
+    </div>
 </body>
 
 <template id="message-template">

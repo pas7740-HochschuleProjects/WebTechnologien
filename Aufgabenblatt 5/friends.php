@@ -105,41 +105,40 @@ foreach($unreadMessagesObject as $key => $value) {
         <a class="btn btn-secondary" href="settings.php">Settings</a>
     </div>
     <hr class="mt-5">
-    <div class="friend-container container <?php if(count($friendList) == 0) echo 'empty';?>" id="friend-container">
+    <div class="friend-container container <?php if(count($friendList) == 0) echo 'd-none';?>" id="friend-container">
         <ul class="list-group">
             <?php foreach ($friendList as $friend) {?>
                 <a href="chat.php?friend=<?php echo $friend->getUsername(); ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" id="<?php echo $friend->getUsername(); ?>">
-                    <?php
-                    if($friend->getStatus() == "accepted"){
-                        echo $friend->getUsername();
-                    }
-                    ?>
-                    <?php if(isset($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] != 0){ ?>
-                        <span class="badge badge-primary badge-pill">
-                            <?php echo $unreadMessages[$friend->getUsername()]; ?>
-                        </span>
-                    <?php } ?>
+                    <div id="name">
+                        <?php
+                        if($friend->getStatus() == "accepted"){
+                            echo $friend->getUsername();
+                        }
+                        ?>
+                    </div>
+                    <span class="badge rounded-pill text-bg-primary <?php if(empty($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] == 0) echo 'd-none';?>">
+                        <?php echo $unreadMessages[$friend->getUsername()]; ?>
+                    </span>
                 </a>
             <?php } ?>
         </ul>
     </div>
+
     <hr id="friend-break-line" class="<?php if(count($friendList) == 0) echo 'd-none';?>">
-    <h2 class="mb-4">New Requests</h2>
-    <ol class="container <?php if(count($requestList) == 0) echo 'empty';?>" id="friend-request-container">
-        <?php foreach ($requestList as $request) {?>
-            <form method="post" action="friends.php">
-                <li class="list-group-item list-group-item-action" id="<?php echo $request->getUsername(); ?>">
-                    <text>Friend request from <b>
-                        <?php echo $request->getUsername(); ?>
-                    </b></text>
-                    <!-- <input type="hidden" value="<?php echo $request->getUsername(); ?>" name="friendname"/>
-                    <button type="submit" name="action" value="accept-friend">Accept</button>
-                    <button type="submit" name="action" value="reject-friend">Reject</button> -->
-                </li>
-            </form>
-        <?php } ?>
-    </ol>
+    
+    <h2 class="mb-4">Friend Requests</h2>
+    <div class="friend-request-container container <?php if(count($requestList) == 0) echo 'd-none';?>" id="friend-request-container">
+        <ul class="list-group">
+            <?php foreach ($requestList as $request) {?>
+                <button class="list-group-item list-group-item-action" id="<?php echo $request->getUsername(); ?>" data-bs-toggle="modal" data-bs-target="#requestModal" onclick="setModal(this)">
+                    Friend request from <b><?php echo $request->getUsername(); ?></b>
+                </button>
+            <?php } ?>
+        </ul>
+    </div>
+
     <hr>
+
     <div class="input-container">
         <form method="post" action="friends.php">
             <fieldset>
@@ -160,26 +159,43 @@ foreach($unreadMessagesObject as $key => $value) {
     <?php if($addFriendFailed) {?>
         <div id="add-friend-failed">Add Friend failed</div>
     <?php } ?>
+
+    <!--Modal-->
+    <div class="modal" id="requestModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-5">
+                        <text>Request from</text> <b>Unkown</b>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <p>Accept request?</p>
+                </div>
+                <div class="modal-footer">
+                    <form method="post" action="friends.php" id="remove-friend-form">
+                        <input type="hidden" name="friendname" id="modalRequestFriendname" />
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="submit" name="action" value="reject-friend">Dismiss</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" type="submit" name="action"  value="accept-friend" >Accept</button>
+                    </form>
+                </div>  
+            </div>    
+        </div>  
+    </div>
 </body>
 
 <template id="friend-template">
     <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
         <div id="name">
         </div>
-        <span class="badge badge-primary badge-pill d-none">
+        <span class="badge rounded-pill text-bg-primary d-none">
         </span>
     </a>
 </template>
 
 <template id="friend-request-template">
-    <form method="post" action="friends.php">
-        <li class="list-group-item list-group-item-action">
-            <text>Friend request from <b></b></text>
-            <!-- <input type="hidden" name="friendname"/>
-            <button type="submit" name="action" value="accept-friend">Accept</button>
-            <button type="submit" name="action" value="reject-friend">Reject</button> -->
-        </li>
-    </form>
+    <button class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#requestModal" onclick="setModal(this)"><text>Friend request from</text> <b></b></button>
 </template>
 
 </html>
