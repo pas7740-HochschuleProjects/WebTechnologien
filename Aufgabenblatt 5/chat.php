@@ -50,7 +50,7 @@ if(empty($_SESSION["user"])){
     </div>            
      
             <div class="container border border-dark mb-4 mt-4" >
-                  <ul class="col align-items-start" id="chatbox" >
+                  <ul class="col align-items-start mb-2 mt-2" id="chatbox" >
                   </ul>  
             </div>
 
