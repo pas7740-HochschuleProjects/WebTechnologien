@@ -150,13 +150,12 @@ foreach($unreadMessagesObject as $key => $value) {
                             <option value="<?php echo $option ?>"/>
                         <?php } ?>
                     </datalist>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit" name="action" value="add-friend">Add</button>
-                    </div>
+                    <button class="btn btn-primary" type="submit" name="action" value="add-friend">Add</button>
                 </div>
             </fieldset>
         </form>
     </div>
+
     <br>
     <?php if($addFriendFailed) {?>
         <div id="add-friend-failed">Add Friend failed</div>
