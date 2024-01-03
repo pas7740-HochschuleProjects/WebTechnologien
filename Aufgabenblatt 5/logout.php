@@ -26,13 +26,13 @@ session_unset();
 
 <body class="container">
     <div class="container text-center">
-     <img class="rounded-circle mt-4 mb-4 w-25 h-25" src="images/logout.png">
+        <img class="rounded-circle mt-4 mb-4 w-25 h-25" src="images/logout.png">
     </div>
 
     <div class="container border border-dark-subtle mt-4 text-center w-50" >
-     <h4 class="fs-1 fw-bold mt-2 mb-4">Logged out...</h4>
-     <p class="h5 mb-2 mt-2">See u! </p>
-     <a class="btn btn-secondary mt-2 mb-4 w-75 text-center" href="login.php"> Login again </a>
+        <p class="fs-1 fw-bold mt-2 mb-4 h5">Logged out...</p>
+        <p class="h5 mb-2 mt-2">See u! </p>
+        <a class="btn btn-secondary mt-2 mb-4 w-75 text-center" href="login.php">Login again</a>
     </div>
 </body>
 

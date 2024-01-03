@@ -42,10 +42,8 @@ if(empty($_SESSION["user"])){
       <a class="btn btn-secondary mt-0 mb-0" href="profile.php?friend=<?php echo $_GET['friend']; ?>">
       Profile
       </a> 
-      <a class="btn btn-danger border-0 mt-0 mb-0">
-        <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#chatModal">
+      <a class="btn btn-danger border-0 mt-0 mb-0" data-bs-toggle="modal" data-bs-target="#chatModal">
         Remove Friend
-        </button>
       </a> 
     </div>            
      

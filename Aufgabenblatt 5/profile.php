@@ -32,7 +32,7 @@ $friend = $service->loadUser($_GET["friend"]);
 ?>
 
 <body>
-    <div class="container border border-dark-subtle mt-3 mb-3w-75 " style="background-color: #f5f5f5;">
+    <div class="container border border-dark-subtle mt-3 mb-3w-75 ">
         <h1 class="text-center mt-3">Profile of <?php echo $_GET["friend"]; ?></h1>
 
         <hr>
@@ -41,9 +41,8 @@ $friend = $service->loadUser($_GET["friend"]);
 
             <a class="btn btn-secondary mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>"> < Back</a>
 
-            <a class="btn btn-danger border-0 mt-0 mb-0">
-                <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#chatModal"> Remove Friend
-                </button>
+            <a class="btn btn-danger border-0 mt-0 mb-0" data-bs-toggle="modal" data-bs-target="#chatModal">
+                Remove Friend
             </a>
         </div>
 
@@ -79,7 +78,7 @@ $friend = $service->loadUser($_GET["friend"]);
             <img src="images/profile.png" width="200" />
         </div>
 
-        <div class="container border border-dark-subtle  mb-3 w-100" style="background-color: white;">
+        <div class="container border border-dark-subtle  mb-3 w-100">
 
             <p><?php echo $friend->getDescription(); ?></p>
 
