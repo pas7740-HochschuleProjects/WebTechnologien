@@ -85,26 +85,36 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="text-center" style="">
-        <img src="images/user.png" class="img-fluid rounded-circle mt-4 mb-4 w-25 h-25"/>
+        <img class="rounded-circle img-fluid mt-4 mb-4 w-25 h-25" src="images\user.png" width="90" />
     </div>
 
-    <div class="container border border-dark-subtle mt-3 mb-4 w-75" style="background-color: #f5f5f5;">
-        <h1 class="text-center mt-2">Register yourself</h1>
+    <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-50 h-50" style="background-color: #f5f5f5;">
+        <h2 class="text-center mt-3">Register yourself</h2>
         <form id="register-form" method="post" action="register.php" class="text-center">
+            <div class="text-center text-wrap mt-2 mb-2">
 
-            <div class="form-floating text-center mt-4 mb-2 w-100">
-                <label class="text-center"><input type="text" placeholder="Username" id="username" name="username" /></label>
+                <div class="container">
+                    <div class="form-floating">
+                        <input class="form-control mt-2" required type="text" placeholder="Username" id="username" name="username" />
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control mt-2" required type="password" placeholder="Password" id="password" name="password" />
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="form-floating">
+                        <input class="form-control mt-2" required type="password" placeholder="Confirm Password" id="confirm" name="confirm" />
+                        <label for="confirm">Confirm</label>
+
+                    </div>
+                </div>
+
+                <div class="container btn-group text-center mt-2 mb-3" role="group">
+                    <button class="btn btn-secondary" formaction="login.php">Cancel</button>
+                    <button name="submit" type="submit" id="submitBTN" disabled="disabled" class="btn btn-primary">Create Account</button>
+                </div>
             </div>
-            <div class="form-floating text-center mb-2 w-100">
-                <label class="text-center"><input type="password" placeholder="Password" id="password" name="password" /></label>
-            </div>
-            <div class="form-floating text-center w-100">
-                <label class="text-center" ><input type="password" placeholder="Confirm Password" id="confirm" name="confirm" /></label>
-            </div>
-            <div class="btn-group text-center mt-4 mb-3 w-100" role="group" aria-label="Links Grau Rechts Blau">
-                <button class="btn btn-secondary" formaction="login.php">Cancel</button>
-                <button name="submit" type="submit" id="submitBTN" disabled="disabled" class="btn btn-primary">Create Account</button>
-            </div>
+
     </div>
 </body>
 
