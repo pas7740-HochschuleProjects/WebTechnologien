@@ -37,15 +37,43 @@ $friend = $service->loadUser($_GET["friend"]);
 
         <hr>
 
-        <div class="btn-group w-50" role="group">
+        <div class="btn-group w-25" role="group">
 
-            <a class="btn btn-secondary border-0 mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>"> < back</a>
+            <a class="btn btn-secondary mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>"> < Back</a>
 
-            <form class="btn btn-secondary bg-danger border-0" method="post" action="friends.php" id="remove-friend-form">
-                <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
-                <button class="btn btn-secondary bg-danger border-0 mt-0 mb-0" type="submit" name="action" value="delete-friend" id="remove-friend-button"> Remove Friend </button>
-            </form>
+            <a class="btn btn-danger border-0 mt-0 mb-0">
+                <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#chatModal"> Remove Friend
+                </button>
+            </a>
         </div>
+
+    <div class="modal" id="chatModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-5">Remove <?php echo $_GET['friend']; ?> 
+                    as Friend
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to end your friendship?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"data-bs-dismiss="modal">
+                    Cancel
+                    </button>
+                    <form method="post" action="friends.php" id="remove-friend-form">
+                        <input type="hidden" value="<?php echo $_GET['friend']; ?>" name="friendname" />
+                        <button class="btn btn-primary" type="submit" name="action"  value="delete-friend" id="remove-friend-button">
+                        Yes, end this friendship!
+                        </button>
+                    </form>
+                </div>  
+            </div>    
+        </div>  
+    </div>
+</body>
 
         <div class="mt-3 mb-3">
             <img src="images/profile.png" width="200" />

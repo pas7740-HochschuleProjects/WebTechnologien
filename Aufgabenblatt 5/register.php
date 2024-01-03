@@ -83,7 +83,7 @@ if (isset($_POST["submit"])) {
 
 ?>
 
-<body>
+<body class="container">
     <div class="text-center" style="">
         <img class="rounded-circle img-fluid mt-4 mb-4 w-25 h-25" src="images\user.png" width="90" />
     </div>
@@ -95,15 +95,15 @@ if (isset($_POST["submit"])) {
 
                 <div class="container">
                     <div class="form-floating">
-                        <input class="form-control mt-2" required type="text" placeholder="Username" id="username" name="username" />
+                        <input class="form-control mt-2" type="text" placeholder="Username" id="username" name="username" />
                         <label for="username">Username</label>
                     </div>
                     <div class="form-floating">
-                        <input class="form-control mt-2" required type="password" placeholder="Password" id="password" name="password" />
+                        <input class="form-control mt-2" type="password" placeholder="Password" id="password" name="password" />
                         <label for="password">Password</label>
                     </div>
                     <div class="form-floating">
-                        <input class="form-control mt-2" required type="password" placeholder="Confirm Password" id="confirm" name="confirm" />
+                        <input class="form-control mt-2" type="password" placeholder="Confirm Password" id="confirm" name="confirm" />
                         <label for="confirm">Confirm</label>
 
                     </div>
