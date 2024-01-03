@@ -42,12 +42,12 @@ $friend = $service->loadUser($_GET["friend"]);
             <a class="btn btn-secondary mt-0 mb-0" href="chat.php?friend=<?php echo $_GET["friend"]; ?>"> < Back</a>
 
             <a class="btn btn-danger border-0 mt-0 mb-0">
-                <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#chatModal"> Remove Friend
+                <button type="button" class="bg-danger border-0 text-white" data-bs-toggle="modal" data-bs-target="#profileModal"> Remove Friend
                 </button>
             </a>
         </div>
 
-    <div class="modal" id="chatModal" tabindex="-1">
+    <div class="modal" id="profileModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
