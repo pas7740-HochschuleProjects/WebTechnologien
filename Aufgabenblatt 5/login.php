@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-50 h-50">
       <p class="text-center mt-4 h5">Please sign in</p> 
-      <div class="text-center mt-2"> 
+      <div class="text-center mt-3"> 
         <form method="post" action="login.php" class="text-center">
           <div class="text-center text-wrap mt-2 mb-2" >
             

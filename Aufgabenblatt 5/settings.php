@@ -47,7 +47,7 @@ if(isset($_POST["action"])){
 <body>
     
         
-    <div class="container border border-dark-subtle mt-4 mb-4 w-75" style="background-color: #f5f5f5;">
+    <div class="container border border-dark-subtle mt-4 mb-4 w-75">
 
         <h1 class="text-center mt-3">Profile Settings</h1>
         <hr />

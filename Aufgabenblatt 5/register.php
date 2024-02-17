@@ -88,9 +88,9 @@ if (isset($_POST["submit"])) {
         <img class="rounded-circle img-fluid mt-4 mb-4 w-25 h-25" src="images\user.png" width="90" />
     </div>
 
-    <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-50 h-50" style="background-color: #f5f5f5;">
-        <h2 class="text-center mt-3">Register yourself</h2>
-        <form id="register-form" method="post" action="register.php" class="text-center">
+    <div class="container border border-dark-subtle mt-4 mb-4 row-2 w-50 h-50">
+        <p class="text-center mt-4 h5">Register yourself</p>
+        <form id="register-form" method="post" action="register.php" class="text-center mt-3">
             <div class="text-center text-wrap mt-2 mb-2">
 
                 <div class="container">

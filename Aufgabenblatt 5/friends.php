@@ -116,7 +116,7 @@ foreach($unreadMessagesObject as $key => $value) {
                         }
                         ?>
                     </div>
-                    <span class="badge rounded-pill text-bg-primary <?php if(empty($unreadMessages[$friend->getUsername()]) && $unreadMessages[$friend->getUsername()] == 0) echo 'd-none';?>">
+                    <span class="badge rounded-pill text-bg-primary <?php if(empty($unreadMessages[$friend->getUsername()]) || $unreadMessages[$friend->getUsername()] == 0) echo 'd-none';?>">
                         <?php echo $unreadMessages[$friend->getUsername()]; ?>
                     </span>
                 </a>
