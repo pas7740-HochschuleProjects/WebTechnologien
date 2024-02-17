@@ -1,0 +1,6 @@
+function WhiteMode() {
+
+}
+function DarkMode() {
+
+}
